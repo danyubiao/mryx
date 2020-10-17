@@ -19,6 +19,7 @@ class MysPage(BasePage):
     help_get_free_locator = (By.LINK_TEXT, "助力免费拿")  # 助力免费拿的大框框相对布局定位
     set_locator = (By.LINK_TEXT, "设置")# 设置的大框框相对布局定位
     points_mall_locator = (By.LINK_TEXT, "积分商城")# 积分商城的大框框相对布局定位
+    order_shipping_locator = (By.LINK_TEXT, "配送中")# 订单配送中的定位
 
     def click_loging_or_registered(self):
         """点击'登录或注册'按钮"""
@@ -39,7 +40,7 @@ class MysPage(BasePage):
         """点击'助力免费拿'按钮"""
         self.driver.find_element(*self.help_get_free_locator).click()
     def click_set(self):
-        """点击'助力免费拿'按钮"""
+        """点击'设置'按钮"""
         self.driver.find_element(*self.set_locator).click()
     def click_points_mall(self):
         """点击'积分商城'按钮"""
