@@ -5,9 +5,10 @@
 # @File : home_page.py
 # @Project : App_autotest
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 
-class HomePage():
+class HomePage(BasePage):
     """封装进入【主页】元素的定位器"""
     ###【分类】定位器
     sort_locator = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("cn.missfresh.application:id/classifyTab")')
