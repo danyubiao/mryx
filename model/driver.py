@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
-# @Time : 2020/10/17 9:09
-# @Author : 墨
-# @Email : xgtlz@gmail.com
+# @Time : 2020/10/15 22:47
+# @Author : 李洪侨
+# @Email : 1141511816@qq.com
 # @File : driver.py
-# @Project : mryx
+# @Project : App_autotest
 from appium import webdriver
-def webdriver_remote():
-    descried_capabilities = {
-        "platformName": "Android",
-        "deviceName": "127.0.0.1:62001",
-        "platformVersion": "7.1.2",
-        "appPackage": "cn.missfresh.application",
-        "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",
+
+def driver():
+    desired_capabilities = {
+        "platformName": "Android",  ###平台
+        "deviceName": "127.0.0.1:62001",  ###设备信息
+        "platformVersion": "5.1.1",  ###版本号
+        "appPackage": "cn.missfresh.application",  ###包名
+        "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",  ###Activity
         'automationName': 'UiAutomator1',
         "noReset": True,
         "unicodeKeyboard": True
+        "noReset": True  ###打开时不重置app
     }
-
-    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", descried_capabilities)
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
     driver.implicitly_wait(30)
     return driver
