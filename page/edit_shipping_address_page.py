@@ -5,9 +5,10 @@
 # @File : edit_shipping_address_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """编辑地址页面"""
-class EditShippingAddressPage():
+class EditShippingAddressPage(BasePage):
 
     """定位器"""
 

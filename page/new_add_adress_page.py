@@ -5,9 +5,10 @@
 # @File : new_add_adress_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """新加地址选择城市页面"""
-class NewAddAdressPage():
+class NewAddAdressPage(BasePage):
 
     """定位器"""
 

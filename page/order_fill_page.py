@@ -5,9 +5,10 @@
 # @File : order_fill_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """支付页面"""
-class OrderFillPage():
+class OrderFillPage(BasePage):
 
     """定位器"""
 

@@ -5,9 +5,12 @@
 # @File : adress_add_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from model.driver import webdriver_remote
+from selenium.webdriver.remote.webelement import WebElement
+from page.base_page import BasePage
 
 """添加地址页面"""
-class AdressAddPage():
+class AdressAddPage(BasePage):
 
     """定位器"""
 

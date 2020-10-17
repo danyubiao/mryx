@@ -5,9 +5,10 @@
 # @File : shopping_cart_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """这是每日优鲜的购物车界面"""
-class ShoppingCartPage():
+class ShoppingCartPage(BasePage):
 
     """定位器"""
     """购物车recycleview"""

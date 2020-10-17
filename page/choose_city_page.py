@@ -5,9 +5,10 @@
 # @File : choose_city_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """选择城市页面"""
-class ChooseCityPage():
+class ChooseCityPage(BasePage):
 
     """定位器"""
 

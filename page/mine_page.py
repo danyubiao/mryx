@@ -5,9 +5,10 @@
 # @File : mine_page.py
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
 """我的页面"""
-class MinePage():
+class MinePage(BasePage):
 
     """定位器"""
 
