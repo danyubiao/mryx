@@ -16,7 +16,7 @@ def driver():
         'automationName': 'UiAutomator1',
         "noReset": True,
         "unicodeKeyboard": True
-        "noReset": True  ###打开时不重置app
+        # "noReset": True  ###打开时不重置app
     }
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
     driver.implicitly_wait(30)
