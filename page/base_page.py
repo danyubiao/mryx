@@ -6,6 +6,7 @@
 # @Project : mryx
 from appium.webdriver.common.mobileby import MobileBy as By
 from model.driver import webdriver_remote
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class BasePage():
@@ -13,20 +14,41 @@ class BasePage():
     def __init__(self,p_driver):
         """初始属性driver"""
         self.driver = webdriver_remote()
-    """点击操作方法"""
-    def click(self, locator):
-        """点击操作方法"""
-        self.driver.find_element(*locator).click()
+    """缩写find_element"""
+    def find_element(self, locator,element=None):
+        """封装查找单个元素"""
+        if element and isinstance(element, WebElement):    #如果元素为真并且是WebElement
+            return element.find_element(*locator)
+        return self.driver.find_element(*locator)
 
-    """输入到对应输入框操作方法"""
-    def send_keys(self, locator):
-        """输入到对应输入框操作方法"""
-        self.driver.find_element(*locator).send_keys()
+    def find_elements(self, locator, elements=None):
+        """封装查找元素列表"""
+        if elements and isinstance(elements, WebElement):
+            return elements.find_element(*locator)
+        return self.driver.find_elements(*locator)
+
+    # 输入内容
+    def send_keys(self,locator,text,element=None):
+        """
+        :param element: 元素对象
+        :param text: 输入的内容
+        :return:
+        """
+        return self.find_element(locator,element).send_keys(text)
+
+    """点击"""
+    def click(self,locator,element=None):
+        return self.find_element(locator,element).click()
+
+    """获取类容"""
+    def text(self,locator,element=None):
+        return self.find_element(locator,element).text
+
 
     """清除输入框"""
-    def clrae(self, locator):
+    def clear(self, locator):
         """清除输入框"""
-        self.driver.find_element(*locator).send_keys()
+        self.find_element(*locator).clear()
 
     """获取窗口大小，返回宽和y高的值"""
     def window_size(self):

@@ -29,3 +29,14 @@ driver.find_element(By.ANDROID_UIAUTOMATOR,'new UiSelector().className(\"android
 driver.find_element(By.ANDROID_UIAUTOMATOR,'new UiSelector().className(\"android.widget.EditText\").textContains(\"请输入验证码\").resourceId(\"cn.missfresh.application:id/checkCode_et\")').send_keys("")
 driver.find_element(By.ID,"cn.missfresh.application:id/iv_protocol").click()
 driver.find_element(By.ANDROID_UIAUTOMATOR,'new UiSelector().className(\"android.widget.TextView\").textContains(\"登录\").resourceId(\"cn.missfresh.application:id/btn_login\")').click()
+
+name = "俏香阁 奥尔良脆骨肠96g 猪肉肠 熟食小吃"
+
+
+
+
+
+
+
+
+
