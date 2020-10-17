@@ -12,7 +12,7 @@ from appium.webdriver.common.mobileby import MobileBy as By
 class BasePage():
     """所有页面的基类"""
 
-    def __init__(self, driver=driver()):
+    def __init__(self, driver):
         self.driver = driver
 
     """封装寻找元素的方法"""
