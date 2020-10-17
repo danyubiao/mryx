@@ -5,6 +5,7 @@
 # @File : logout_login_test.py
 # @Project : mryx
 from page.base_page import BasePage
+from page.mys_set_page import MysSetPage
 from model.driver import webdriver_remote
 from page.mys_page import MysPage
 from time import sleep
@@ -12,6 +13,7 @@ import unittest
 from appium.webdriver.common.mobileby import MobileBy as By
 
 class LogoutLogingTest(unittest.TestCase):
+    """注销登录测试"""
     driver = webdriver_remote()
     def setUp(self) -> None:
         print("开始")
@@ -21,12 +23,15 @@ class LogoutLogingTest(unittest.TestCase):
 
     def test_MRYX_ST_usr_002(self):
         """注销登录测试"""
-        print(00)
         bp = BasePage(self.driver)
-        print(11)
-        sleep(1)
+        sleep(2)
         bp.click((By.ID,"cn.missfresh.application:id/mineTab")) #点击我的
-        mys = MysPage(self.driver) #实例化"我的"界面
-
+        sleep(2)
+        bp.to_up(duration=3000) # 上滑出现设置
+        mp = MysPage(self.driver) #实例化"我的"界面
+        mp.click_set() #点击设置按钮
+        sleep(1)
+        msp = MysSetPage(self.driver) #实例化我的设置界面
+        msp.click_sign_out() # 点击退出登录
 if __name__ == '__main__':
     unittest.main()

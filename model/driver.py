@@ -5,7 +5,7 @@
 # @File : driver.py
 # @Project : mryx
 from appium import webdriver
-def webdriver_remote():
+def drive():
     descried_capabilities = {
         "platformName": "Android",
         "deviceName": "127.0.0.1:62001",

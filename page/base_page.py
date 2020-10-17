@@ -10,9 +10,9 @@ from model.driver import webdriver_remote
 
 class BasePage():
     """页面的基页面"""
-    def __init__(self,p_driver):
+    def __init__(self,driver):
         """初始属性driver"""
-        self.driver = webdriver_remote()
+        self.driver = driver
     """点击操作方法"""
     def click(self, locator):
         """点击操作方法"""
