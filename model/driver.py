@@ -17,5 +17,6 @@ def driver():
         "noReset": True  ###打开时不重置app
     }
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+    driver.implicitly_wait(30)
     return driver
 

@@ -17,5 +17,4 @@ class BaseCase(unittest.TestCase):
     # """获取cookie"""
     # def setUpClass(cls) -> None:
     def setUp(self) -> None:
-        hp=BasePage()
-
+        bp = BasePage()
