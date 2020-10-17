@@ -7,13 +7,12 @@
 
 """封装首页"""
 
-from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
 
 class HomePage(BasePage):
     # 吃什么页面的定位器
-    eat_loc=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/foodTab\"]')
-
+    eat_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("吃什么")')
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)

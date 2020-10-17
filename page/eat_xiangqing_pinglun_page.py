@@ -6,7 +6,7 @@
 # @Project : mryx
 
 
-from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
 
 class XiangQingPinglunPage(BasePage):

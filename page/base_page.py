@@ -5,7 +5,8 @@
 # @File : base_page.py
 # @Project : mryx
 
-from selenium.webdriver.remote.webelement import WebElement
+
+from appium.webdriver import WebElement
 
 
 class BasePage():

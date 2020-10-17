@@ -7,7 +7,7 @@
 
 """封装吃什么的详情页面"""
 
-from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
 
 class EatXiangQingPage(BasePage):
@@ -26,7 +26,7 @@ class EatXiangQingPage(BasePage):
                           'application:id/iv_like\"]')
 
     # 购物车商品数量定位器
-    shopping_num=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.'
+    shopping_num_loc=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.'
                            'application:id/bv_shopping_cart_counts\"]')
 
     # 食材添加号定位器
@@ -48,6 +48,15 @@ class EatXiangQingPage(BasePage):
     def dianzan_click(self):
         # 点击点赞
         self.click(self.dianzan_loc)
+
+    def jiagou_click(self):
+        # 点击将食材加购
+        self.click(self.jia_loc)
+
+    def shopping_num(self):
+        # 获取购物车的商品数量
+        text=self.text(self.shopping_num_loc)
+        return text
 
 
 

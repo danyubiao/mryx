@@ -7,14 +7,14 @@
 
 """封装吃什么页面"""
 
-from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
 
 
 class EatPage(BasePage):
     # 吃什么页面输入框的定位器
-    find_loc=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.'
-                       'application:id/tv_search\"]')
+    find_loc=(By.ANDROID_UIAUTOMATOR,'new UiSelector().text("试试搜索食材、或者菜谱吧")')
+
     # 吃什么页面第一个内容的定位器
     first_loc=(By.XPATH,'//android.widget.FrameLayout[1]/android.widget.LinearLayout[1]'
                         '/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]'

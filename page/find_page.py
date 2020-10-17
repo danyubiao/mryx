@@ -7,13 +7,13 @@
 
 """封装搜索页面"""
 
-from selenium.webdriver.common.by import By
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
 
 class FindPage(BasePage):
     # 搜索框的定位器
-    sousuo_loc=(By.XPATH,'//android.widget.EditText[@resource-id=\"cn.'
-                         'missfresh.application:id/search_view\"]')
+    sousuo_loc=(By.ANDROID_UIAUTOMATOR,'new UiSelector().text("试试搜索食材、或者菜谱吧")')
+    # 搜索按钮定位器
     sousuo_cilck_loc=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.'
                                'missfresh.application:id/tv_search\"]')
 
