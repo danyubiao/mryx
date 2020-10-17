@@ -5,13 +5,14 @@
 # @File : driver.py
 # @Project : mryx
 from appium import webdriver
-def drive():
+
+def driver():
     descried_capabilities = {
-        "platformName": "Android",
-        "deviceName": "127.0.0.1:62001",
-        "platformVersion": "7.1.2",
-        "appPackage": "cn.missfresh.application",
-        "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",
+        "platformName": "Android",  ###平台
+        "deviceName": "127.0.0.1:62001",  ###设备信息
+        "platformVersion": "5.1.1",  ###版本号
+        "appPackage": "cn.missfresh.application",  ###包名
+        "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",  ###Activity
         'automationName': 'UiAutomator1',
         "noReset": True,
         "unicodeKeyboard": True
