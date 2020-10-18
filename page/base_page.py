@@ -3,7 +3,9 @@
 # @Author : 墨
 # @Email : xgtlz@gmail.com
 # @File : base_page.py
-# @Project : mryx
+# @Project : App_autotest
+from model.driver import driver
+from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
 from model.driver import webdriver_remote
 from selenium.webdriver.remote.webelement import WebElement
@@ -51,6 +53,23 @@ class BasePage():
         """清除输入框"""
         self.find_element(*locator).clear()
 
+    """封装添加商品的方法"""
+
+    def choose(self, no=None):
+        buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
+        elements = self.driver.find_elements(buy_locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        if no and isinstance(no, list):
+            for i in no:
+                ele[i - 1].click()
+        elif no and isinstance(no, int):
+            ele[no - 1].click()
+        else:
+            print("你输入的数字不合法")
+
+
     """获取窗口大小，返回宽和y高的值"""
     def window_size(self):
         """获取窗口大小，返回宽和y高的值"""
@@ -94,3 +113,4 @@ class BasePage():
         end_x = 0.2 * x
         end_y = start_y = 0.5 * y
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+
