@@ -17,6 +17,12 @@ class ShoppingCartPage(BasePage):
     """删除商品"""
     delete_the_goods_loc = (By.ID, "cn.missfresh.application:id/tv_delete")
 
+    """确认删除商品"""
+    ensure_delete_the_goods_loc = (By.ID, "cn.missfresh.application:id/tv_ensure")
+
+    """取消删除商品"""
+    cancel_delete_the_goods_loc = (By.ID, "cn.missfresh.application:id/tv_search")
+
     """全选商品"""
     select_all_loc = (By.ID, "cn.missfresh.application:id/cb_select_all")
 

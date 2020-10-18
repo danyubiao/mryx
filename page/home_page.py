@@ -16,3 +16,6 @@ class HomePage(BasePage):
 
     """分类标签"""
     classify_tab_loc = (By.ID,"cn.missfresh.application:id/classifyTab")
+
+    """购物车标签"""
+    cart_tab_loc = (By.ID,"cn.missfresh.application:id/cartTab")

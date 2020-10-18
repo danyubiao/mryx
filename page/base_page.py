@@ -39,11 +39,11 @@ class BasePage():
 
     """点击"""
     def click(self,locator,element=None):
-        return self.find_element(locator,element).click()
+        self.find_element(locator,element).click()
 
     """获取内容"""
     def text(self,locator,element=None):
-        return self.find_element(locator,element).text
+        self.find_element(locator,element).text()
 
 
     """清除输入框"""

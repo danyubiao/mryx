@@ -18,11 +18,14 @@ class ClassifyPage(BasePage):
     """点击后搜索框搜索框"""
     search_view_loc = (By.XPATH,"//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
 
-    """搜索物品recycler"""
+    """搜索物品RecyclerView"""
     result_recycler_loc = (By.ID,"cn.missfresh.application:id/result_recycler")
 
     """搜索后购物车"""
     cart_view_loc = (By.XPATH, "//android.widget.ImageView[@resource-id=\"cn.missfresh.application:id/cart_view\"]")
+
+    """买它"""
+    buy_now_loc = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")
 
     """牛奶特仑苏"""
     suggest_contentt_loc = (By.ANDROID_UIAUTOMATOR,"new UiSelector().className(\"android.widget.TextView\")."
