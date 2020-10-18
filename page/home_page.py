@@ -17,3 +17,6 @@ class HomePage(BasePage):
     ###【我的】定位器
     mine_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/mineTab\"]")
 
+    def click_mine(self):
+        """点击'我的'按钮"""
+        self.click(self.mine_locator)
