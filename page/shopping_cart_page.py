@@ -11,6 +11,10 @@ from page.base_page import BasePage
 class ShoppingCartPage(BasePage):
 
     """定位器"""
+
+    """购物车title"""
+    shopping_cart_title_loc = (By.ID, "cn.missfresh.application:id/tv_location")
+
     """购物车recycleview"""
     shopping_cart_recycleview_loc = (By.ID, "cn.missfresh.application:id/rcv_product")
 
@@ -31,3 +35,9 @@ class ShoppingCartPage(BasePage):
 
     """全部价格"""
     checkout_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
+
+    """可用优惠券"""
+    available_coupons_loc = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/coupon_count\"]')
+
+    """去凑单"""
+    go_coudan_loc = (By.XPATH,'//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_coupon\"]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]')
