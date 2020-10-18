@@ -2,7 +2,7 @@
 # @Author : 30037
 # @Email : 960364395@qq.com
 # @File : driver.py
-# @Project : mryx
+# @Project : missfresh
 
 from appium import webdriver
 from time import sleep
@@ -13,6 +13,7 @@ from conf.config import desired_capabilities
 def open_mryx():
 
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+    driver.implicitly_wait(30)
     return driver
 
 

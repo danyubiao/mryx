@@ -2,7 +2,7 @@
 # @Author : 30037
 # @Email : 960364395@qq.com
 # @File : config.py
-# @Project : mryx
+# @Project : missfresh
 
 desired_capabilities = {
     'platformName': 'Android',

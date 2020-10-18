@@ -2,26 +2,28 @@
 # @Author : 30037
 # @Email : 960364395@qq.com
 # @File : base_case.py
-# @Project : mryx
+# @Project : missfresh
 
 from page.home_page import HomePage
 import unittest
 from page.base_page import BasePage
 from page.home_page import HomePage
 from time import sleep
+from model.driver import open_mryx
+
 
 class BaseCase(unittest.TestCase):
     def setUp(self) -> None:
-        hp = HomePage()
+        self.driver = open_mryx()
+        hp = HomePage(self.driver)
         sleep(3)
         hp.click(hp.adress_locator)
         sleep(1)
-        hp.click(hp.suzhou_locator)
+        hp.click(hp.city_locator)
+        sleep(1)
+        hp.click(hp.beijing_locator)
+        sleep(1)
+        hp.click(hp.return_locator)
         sleep(1)
         hp.click(hp.classify_locator)
-
-    def test_pass(self):
-        pass
-
-if __name__ == '__main__':
-    unittest.main()
+        sleep(1)
