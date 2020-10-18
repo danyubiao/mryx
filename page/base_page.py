@@ -11,9 +11,10 @@ from selenium.webdriver.remote.webelement import WebElement
 
 class BasePage():
     """页面的基页面"""
-    def __init__(self,p_driver):
+    def __init__(self,driver):
         """初始属性driver"""
-        self.driver = webdriver_remote()
+        self.driver = driver
+
     """缩写find_element"""
     def find_element(self, locator,element=None):
         """封装查找单个元素"""
@@ -40,7 +41,7 @@ class BasePage():
     def click(self,locator,element=None):
         return self.find_element(locator,element).click()
 
-    """获取类容"""
+    """获取内容"""
     def text(self,locator,element=None):
         return self.find_element(locator,element).text
 

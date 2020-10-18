@@ -9,7 +9,7 @@ from appium.webdriver.common.mobileby import MobileBy as By
 def commodity_operating(driver,*loc,name):
     RecycleView = driver.find_element(*loc)
     LinearLayouts = RecycleView.find_elements(By.CLASS_NAME, "android.widget.LinearLayout")
-    for LinearLayout in LinearLayouts[2:]:
+    for LinearLayout in LinearLayouts:
         try:
             if LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text") == name:
                 check = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name")
@@ -26,7 +26,7 @@ def guess_like_shop(driver,*loc,name):
     RelativeLayouts = RecycleView.find_elements(By.CLASS_NAME, "android.widget.RelativeLayout")
     for RelativeLayout in RelativeLayouts:
         try:
-            if RelativeLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text") == name:
+            if name in RelativeLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text"):
                 buy_now = RelativeLayout.find_element(By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")
                 return buy_now
         except Exception:
