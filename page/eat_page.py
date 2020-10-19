@@ -37,7 +37,7 @@ class EatPage(BasePage):
 
     def first_click(self):
         # 点击页面第一个内容
-        self.click(self.find_loc)
+        self.click(self.first_loc)
 
     def user_click(self):
         # 点击用户的头像
@@ -49,4 +49,9 @@ class EatPage(BasePage):
     def jingxun_text(self):
         # 获取精选专题这个文本
         text=self.text(self.jingxuan_loc)
+        return text
+
+    def first_text(self):
+        # 获取第一个内容的文本
+        text=self.text(self.first_loc)
         return text
