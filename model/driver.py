@@ -33,12 +33,12 @@ def driver():
 
 
 
+
 def app_mrsx():  #打开每日优鲜
     app_mryx={'appPackage': 'cn.missfresh.application',
           'appActivity': 'cn.missfresh.module.base.main.view.SplashActivity'}   #每日优鲜的包名和activity
     desired_capabilites.update(app_mryx)    #将每日优鲜的包名等信息追加到手机信息的字典，组成新的字典
     driver = webdriver.Remote('http://localhost:4723/wd/hub',desired_capabilites )   #使用手机进入每日生鲜
     return driver
-
 
 

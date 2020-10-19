@@ -27,7 +27,7 @@ class BasePage():
     def find_elements(self, locator, elements=None):
         """封装查找元素列表"""
         if elements and isinstance(elements, WebElement):
-            return elements.find_element(*locator)
+            return elements.find_elements(*locator)
         return self.driver.find_elements(*locator)
 
     # 输入内容
@@ -46,17 +46,15 @@ class BasePage():
 
     """获取内容"""
 
-    def text(self, locator, element=None):
-        text = self.find_element(locator, element).text
+
+    def text(self,locator,element=None):
+        text = self.find_element(locator,element).text
         return text
 
 
-"""清除输入框"""
 
 
-def clear(self, locator):
-    """清除输入框"""
-    self.find_element(*locator).clear()
+
 
 
 # 滚动
@@ -64,7 +62,31 @@ def scroll(self, start_element, end_element):
     self.driver.scroll(start_element, end_element)
 
 
-"""封装添加商品的方法"""
+
+    def clear(self, locator):
+        """清除输入框"""
+        self.find_element(*locator).clear()
+
+    # 滚动
+    def scroll(self, start_element, end_element):
+        self.driver.scroll(start_element, end_element)
+
+    """封装添加商品的方法"""
+
+#     def choose(self, locator, no=None):
+#         expr = '//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[{}]'
+#         ele = []
+#         for i in range(1, 6):
+#             expr_locator = (By.XPATH, expr.format(i))
+#             ele.append(self.find_element(expr_locator))
+#         if no and isinstance(no, list):
+#             for i in no:
+#                 ele[i - 1].find_element(*locator).click()
+#         else:
+#             print("您输入的数据不合法，请输入一个列表")
+# >>>>>>> master
+
+# """封装添加商品的方法"""
 
 
 def choose(self, no=None):
@@ -85,28 +107,23 @@ def choose(self, no=None):
 """获取窗口大小，返回宽和y高的值"""
 
 
-def window_size(self):
-    """获取窗口大小，返回宽和y高的值"""
-    window_size_dict = self.driver.get_window_size()  # 获取窗口大小
-    x = window_size_dict.get("width")
-    y = window_size_dict.get("height")
-    return x, y
 
 
-"""向上滑动,传参持续时间"""
+    def window_size(self):
+        """获取窗口大小，返回宽和y高的值"""
+        window_size_dict = self.driver.get_window_size()  # 获取窗口大小
+        x = window_size_dict.get("width")
+        y = window_size_dict.get("height")
+        return x, y
 
 
-def to_up(self, duration=5000):
-    """向上滑动,传参持续时间"""
-    x, y = self.window_size()
-    end_x = start_x = 0.5 * x
-    start_y = 0.8 * y
-    end_y = 0.2 * y
-    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
-
-
-"""向下滑动,传参持续时间"""
-
+    def to_up(self, duration=5000):
+        """向上滑动,传参持续时间"""
+        x, y = self.window_size()
+        end_x = start_x = 0.5 * x
+        start_y = 0.8 * y
+        end_y = 0.2 * y
+        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
 def to_down(self, duration=5000):
     """向下滑动,传参持续时间"""
@@ -128,8 +145,6 @@ def to_right(self, duration=5000):
     end_y = start_y = 0.5 * y
     self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-
-"""向左滑动,传参持续时间"""
 
 
 def to_left(self, duration=5000):
@@ -154,3 +169,19 @@ def order_text(self, locator, no=None):
     for i in elements:
         ele.append(i)
     return ele[no - 1].text
+
+   
+
+    def get_text(self, locator):
+        return self.find_element(locator).text
+
+    """按照商品的顺序获取信息"""
+
+    def order_text(self, locator, no=None):
+        elements = self.find_elements(locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        return ele[no - 1].text
+
+
