@@ -47,3 +47,6 @@ class ShoppingCartPage(BasePage):
 
     """我的标签"""
     mine_tab_loc = (By.ID, "cn.missfresh.application:id/mineTab")
+
+    """购物车加入的商品的名称"""
+    milk_name_loc = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.TextView[1]')

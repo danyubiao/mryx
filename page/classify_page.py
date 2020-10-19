@@ -44,3 +44,8 @@ class ClassifyPage(BasePage):
     """牛奶特仑苏"""
     suggest_contentt_loc = (By.ANDROID_UIAUTOMATOR,"new UiSelector().className(\"android.widget.TextView\")."
                                                    "textContains(\"牛奶特仑苏\").resourceId(\"cn.missfresh.application:id/suggestContent\")")
+    """搜索特仑苏牛奶后选择第一个产品"""
+    milk_terunshu_loc = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.FrameLayout[3]/android.widget.ImageView")
+
+    """搜索特仑苏牛奶后选择第一个产品的name"""
+    milk_terunshu_name_loc = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.TextView[1]")
