@@ -46,12 +46,22 @@ class BasePage():
 
     """获取内容"""
 
+
     def text(self,locator,element=None):
         text = self.find_element(locator,element).text
         return text
 
 
-    """清除输入框"""
+
+
+
+
+
+# 滚动
+def scroll(self, start_element, end_element):
+    self.driver.scroll(start_element, end_element)
+
+
 
     def clear(self, locator):
         """清除输入框"""
@@ -63,19 +73,41 @@ class BasePage():
 
     """封装添加商品的方法"""
 
-    def choose(self, locator, no=None):
-        expr = '//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[{}]'
-        ele = []
-        for i in range(1, 6):
-            expr_locator = (By.XPATH, expr.format(i))
-            ele.append(self.find_element(expr_locator))
-        if no and isinstance(no, list):
-            for i in no:
-                ele[i - 1].find_element(*locator).click()
-        else:
-            print("您输入的数据不合法，请输入一个列表")
+#     def choose(self, locator, no=None):
+#         expr = '//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[{}]'
+#         ele = []
+#         for i in range(1, 6):
+#             expr_locator = (By.XPATH, expr.format(i))
+#             ele.append(self.find_element(expr_locator))
+#         if no and isinstance(no, list):
+#             for i in no:
+#                 ele[i - 1].find_element(*locator).click()
+#         else:
+#             print("您输入的数据不合法，请输入一个列表")
+# >>>>>>> master
 
-    """获取窗口大小，返回宽和y高的值"""
+# """封装添加商品的方法"""
+
+
+def choose(self, no=None):
+    buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
+    elements = self.driver.find_elements(buy_locator)
+    ele = []
+    for i in elements:
+        ele.append(i)
+    if no and isinstance(no, list):
+        for i in no:
+            ele[i - 1].click()
+    elif no and isinstance(no, int):
+        ele[no - 1].click()
+    else:
+        print("你输入的数字不合法")
+
+
+"""获取窗口大小，返回宽和y高的值"""
+
+
+
 
     def window_size(self):
         """获取窗口大小，返回宽和y高的值"""
@@ -84,7 +116,6 @@ class BasePage():
         y = window_size_dict.get("height")
         return x, y
 
-    """向上滑动,传参持续时间"""
 
     def to_up(self, duration=5000):
         """向上滑动,传参持续时间"""
@@ -94,35 +125,52 @@ class BasePage():
         end_y = 0.2 * y
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
+def to_down(self, duration=5000):
     """向下滑动,传参持续时间"""
+    x, y = self.window_size()
+    end_x = start_x = 0.5 * x
+    start_y = 0.2 * y
+    end_y = 0.8 * y
+    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-    def to_down(self, duration=5000):
-        """向下滑动,传参持续时间"""
-        x, y = self.window_size()
-        end_x = start_x = 0.5 * x
-        start_y = 0.2 * y
-        end_y = 0.8 * y
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
+"""向右滑动,传参持续时间"""
+
+
+def to_right(self, duration=5000):
     """向右滑动,传参持续时间"""
+    x, y = self.window_size()
+    start_x = 0.2 * x
+    end_x = 0.9 * x
+    end_y = start_y = 0.5 * y
+    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-    def to_right(self, duration=5000):
-        """向右滑动,传参持续时间"""
-        x, y = self.window_size()
-        start_x = 0.2 * x
-        end_x = 0.9 * x
-        end_y = start_y = 0.5 * y
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
+
+def to_left(self, duration=5000):
     """向左滑动,传参持续时间"""
+    x, y = self.window_size()
+    start_x = 0.9 * x
+    end_x = 0.2 * x
+    end_y = start_y = 0.5 * y
+    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-    def to_left(self, duration=5000):
-        """向左滑动,传参持续时间"""
-        x, y = self.window_size()
-        start_x = 0.9 * x
-        end_x = 0.2 * x
-        end_y = start_y = 0.5 * y
-        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+
+def get_text(self, locator):
+    return self.find_element(locator).text
+
+
+"""按照商品的顺序获取信息"""
+
+
+def order_text(self, locator, no=None):
+    elements = self.find_elements(locator)
+    ele = []
+    for i in elements:
+        ele.append(i)
+    return ele[no - 1].text
+
+   
 
     def get_text(self, locator):
         return self.find_element(locator).text
@@ -137,15 +185,3 @@ class BasePage():
         return ele[no - 1].text
 
 
-"""调试方法"""
-# from time import sleep
-#
-# buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
-# a = BasePage(driver())
-# cart_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
-# ###【分类】定位器
-# sort_locator = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("cn.missfresh.application:id/classifyTab")')
-# ###【购物车】定位器
-# a.click(sort_locator)
-# sleep(10)
-# a.choose(buy_locator, [1, 2, 3, 4])

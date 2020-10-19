@@ -16,7 +16,6 @@ from testcase.base_case import BaseCase
 
 class FenLei1(BaseCase):
     """首页点击分类测试用例"""
-    driver=driver
     def test_fenlei(self):
         lp = FenLei(self.driver)
         lp.click_dianji()
