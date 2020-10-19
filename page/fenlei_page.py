@@ -52,8 +52,14 @@ class SousuoPage(BasePage):
 class FenLei(BasePage):
 #封装定位器
     fenlei_location =(By.ID,"cn.missfresh.application:id/classifyTab")
+#获取分类断言定位
+    fenlei_duanyan_locator=(By.ID,"cn.missfresh.application:id/tv_category_name")
 
      #点击分类跳转
     def click_dianji(self):
-        self.driver.find_element(*self.fenlei_location).click()
+        self.click(self.fenlei_location)
 
+    def duanyan_fenlei(self):
+        element= self.driver.find_element(*self.fenlei_duanyan_locator)
+        text= element.text
+        return text
