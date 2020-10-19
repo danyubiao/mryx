@@ -8,6 +8,9 @@
 """封装测试用例——在吃什么的页面上下滑动加载"""
 import unittest
 from time import sleep
+
+from selenium.common.exceptions import NoSuchElementException
+
 from page.eat_page import EatPage
 from page.home_page import HomePage
 from testcase.test_base import TestBase
@@ -25,12 +28,13 @@ class TestShouYeHuaDong(TestBase):
             sleep(10)
             self.ep = EatPage(self.driver)  # 实例化吃什么页面
             hp.eat_click()  # 点击吃什么
-            sleep(5)
-            self.af=self.ep.first_text()   #获取刷新前第一个内容的文本信息
-            self.driver.swipe(900,180,900,1700) #本页往下滑动
-            sleep(5)
-        except Exception:
+        except NoSuchElementException:
             print('测试失败')
+        sleep(5)
+        self.af=self.ep.first_text()   #获取刷新前第一个内容的文本信息
+        self.driver.swipe(900,180,900,1700) #本页往下滑动
+        sleep(5)
+
         # 断言
         bf=self.ep.first_text()   #获取刷新后第一个内容的文本信息
         self.assertNotEqual(self.af,bf)   #断言刷新前和刷新后页面第一条内容的文本信息不相等

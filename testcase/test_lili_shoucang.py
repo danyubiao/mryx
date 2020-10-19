@@ -6,6 +6,9 @@
 # @Project : mryx
 
 import unittest
+
+from selenium.common.exceptions import NoSuchElementException
+
 from page.eat_page import EatPage
 from page.home_page import HomePage
 from testcase.test_base import TestBase
@@ -22,17 +25,18 @@ class TestShouCang(TestBase):
         try:
             hp = HomePage(self.driver)  #实例化主页
             sleep(10)
-            ep = EatPage(self.driver)  # 实例化吃什么页面
+            self.ep = EatPage(self.driver)  # 实例化吃什么页面
             hp.eat_click()  # 点击吃什么
-            sleep(5)
-            ep.first_click()  # 点击第一个菜谱
-            self.xq=EatXiangQingPage(self.driver)  # 实例化详情页面
-            sleep(5)
-            self.af = int(self.xq.shoucang_num())  # 获取收藏前的收藏次数
-            self.xq.shoucang_click()  # 点击收藏
-            sleep(2)
-        except Exception:
+        except NoSuchElementException:
             print('测试失败')
+        sleep(5)
+        self.ep.first_click()  # 点击第一个菜谱
+        self.xq=EatXiangQingPage(self.driver)  # 实例化详情页面
+        sleep(5)
+        self.af = int(self.xq.shoucang_num())  # 获取收藏前的收藏次数
+        self.xq.shoucang_click()  # 点击收藏
+        sleep(2)
+
 
      # 断言
 

@@ -6,6 +6,9 @@
 # @Project : mryx
 
 import unittest
+
+from selenium.common.exceptions import NoSuchElementException
+
 from page.eat_page import EatPage
 from page.home_page import HomePage
 from testcase.test_base import TestBase
@@ -27,18 +30,19 @@ class TestPingLun(TestBase):
             self.hp = HomePage(self.driver)
             sleep(10)
             self.hp.eat_click()  # 点击吃什么
-            self.ep = EatPage(self.driver)  # 实例化吃什么页面
-            sleep(5)
-            self.ep.first_click()  # 点击第一个菜谱
-            sleep(2)
-            self.xq = EatXiangQingPage(self.driver)  # 实例化详情页面
-            self.xq.pinglun_click()  #点击评论框
-            pl=XiangQingPinglunPage(self.driver)   #实例化评论页面
-            sleep(2)
-            pl.pinglun_send('你真棒呀！')   #输入评论
-            pl.fasong_click()   #点击发送
-        except Exception:
+        except NoSuchElementException:
             print('测试失败')
+        self.ep = EatPage(self.driver)  # 实例化吃什么页面
+        sleep(5)
+        self.ep.first_click()  # 点击第一个菜谱
+        sleep(2)
+        self.xq = EatXiangQingPage(self.driver)  # 实例化详情页面
+        self.xq.pinglun_click()  #点击评论框
+        pl=XiangQingPinglunPage(self.driver)   #实例化评论页面
+        sleep(2)
+        pl.pinglun_send('你真棒呀！')   #输入评论
+        pl.fasong_click()   #点击发送
+
         # 断言
         sleep(3)
         text=self.xq.pinglunneirong_text()  #获取第一条评论的用户名
