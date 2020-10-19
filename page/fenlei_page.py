@@ -12,18 +12,15 @@ class FenleiPage(BasePage):
 
     """MRYX_ST_classification_001"""
     """点击分类定位器"""
-    fenlei_locator = (By.XPATH,"//android.widget.FrameLayout[1]/"
-                               "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
-                               "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
-                               "android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.TextView[1]")
+    fenlei_locator = (By.ID, "cn.missfresh.application:id/classifyTab")
     """点击搜索定位器"""
-    fenlei_sousuo_locator = (By.ID,"cn.missfresh.application:id/tv_search_text") #新增收货地址定位
+    fenlei_sousuo_locator = (By.ID, "cn.missfresh.application:id/tv_search_text") #新增收货地址定位
     """输入搜索内容定位器"""
-    shuru_sousuo_locator = (By.XPATH,"//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
+    shuru_sousuo_locator = (By.XPATH, "//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
     """点击搜索定位器"""
-    dianji_sousuo_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search\"]")
+    dianji_sousuo_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search\"]")
     """断言购物车定位器"""
-    zonghe_duanyan_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/composite_tv\"]")
+    zonghe_duanyan_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/composite_tv\"]")
 
     def going_fenlei(self):
         """封装分类页面"""
@@ -51,10 +48,24 @@ class FenleiPage(BasePage):
         text = ele.text
         return text
 
-    """MRYX_ST_classification_002封装"""
-    """封装排序定位器"""
-    paixun_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
-    def click_paixu(self):
-        """封装排序方法"""
-        ele = self.driver.find_element(*self.paixun_locator)
+    """MRYX_ST_classification_007封装"""
+    """封装删除搜索历史定位器"""
+    clear_sousuo_locator = (By.ID, "cn.missfresh.application:id/clear_his_view")
+    """确定删除搜索历史定位器"""
+    sure_clear_locator = (By.ID, "cn.missfresh.application:id/submit_tv")
+    """断言删除历史搜索成功"""
+    rmss_locator = (By.ID, "cn.missfresh.application:id/hot_tip_tv")
+
+    def click_clear(self):
+        """封装删除搜索历史方法"""
+        ele = self.driver.find_element(*self.clear_sousuo_locator)
         ele.click()
+
+    def click_sure(self):
+        ele = self.driver.find_element(*self.sure_clear_locator)
+        ele.click()
+
+    def get_rmss(self):
+        ele = self.driver.find_element(*self.rmss_locator)
+        text = ele.text
+        return text
