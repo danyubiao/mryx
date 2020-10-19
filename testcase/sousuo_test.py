@@ -16,10 +16,6 @@ class SousuoTest(BaseCase):
     def test_sousuo(self):
         """MRYX_ST_classification_001"""
         """搜索测试"""
-        # bp = BasePage(self.driver)
-        # # 进入分类页面
-        # bp.click((By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]"))
-        # 实例化"搜索"界面
         sousuo = SousuoPage(self.driver)
         # 进入分类页面
         sleep(2)
