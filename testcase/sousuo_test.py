@@ -31,15 +31,6 @@ class SousuoTest(BaseCase):
         dy = sousuo.get_zonghe()
         self.assertEqual(dy, "综合")
 
-    # def test_paixu(self):
-    #     """MRYX_ST_classification_002"""
-    #     """排序测试"""
-    #     px = FenleiPage(self.driver)
-    #     sleep(2)
-    #     # 进入分类页面
-    #     px.going_fenlei()
-    #     # 点击排序
-    #     px.click_paixu()
 
 if __name__ == '__main__':
     unittest.main()
