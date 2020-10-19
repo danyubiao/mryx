@@ -13,4 +13,5 @@ class AddToCar(BaseCase):
     #添加商品到购物车，用例编号：MRYX_ST_classification_014
     def test_addto_car(self):
         cp = ClassifyPage(self.driver)
-        cp.click(cp.add_car_locator)
+        cp.tap(cp.add_car_locator)
+
