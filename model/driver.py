@@ -4,6 +4,7 @@
 # @Email : 1141511816@qq.com
 # @File : driver.py
 # @Project : App_autotest
+
 from appium import webdriver
 from time import sleep
 from selenium.webdriver.support.wait import WebDriverWait
@@ -28,9 +29,6 @@ def driver():
     driver.implicitly_wait(30)
     return driver
 
-    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
-    driver.implicitly_wait(30)
-    return driver
 
 
 
