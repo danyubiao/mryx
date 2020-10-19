@@ -22,7 +22,8 @@ class MysShippingAddressNewAddShippingAddressPage(BasePage):
 
     def send_receiver(self,name):
         """输入收货人姓名"""
-        self.send_keys(self.receiver_locator,name)
+        self.driver.find_element(*self.receiver_locator).send_keys(name)
+
 
     def click_sex(self,sex):
         """点击性别先生"""

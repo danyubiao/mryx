@@ -9,7 +9,7 @@ from appium.webdriver.common.mobileby import MobileBy as By
 
 class MysShippingAddressPage(BasePage):
     """我的收货地址界面"""
-    new_add_shipping_address_locator = (By.LINK_TEXT,"新增收货地址") #新增收货地址定位
+    new_add_shipping_address_locator = (By.ID,"cn.missfresh.application:id/btn_add_address") #新增收货地址定位
     # 第一个地址的编辑框定位
     one_shipping_address_bianji_locator = (By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/fl_edit_address\"]/android.widget.TextView[1]")
     def click_new_add_shipping_address(self):

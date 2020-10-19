@@ -23,31 +23,39 @@ class TestAddShoppingAddress(BaseCase):
 
     def setUp(self) -> None:
         hp = HomePage(self.driver)
-        hp.click_mine()  # 点击我的
+        hp.click_mine_test()  # 点击我的
 
     def test_MRYX_ST_usr_003(self):
         sleep(2)
         mp = MysPage(self.driver)
         mp.to_up(2000)
+        sleep(2)
         mp.click_shipping_address() # 点击收货地址
         mss = MysShippingAddressPage(self.driver)
         mss.click_new_add_shipping_address() #点击新增地址
         mssn = MysShippingAddressNewAddShippingAddressPage(self.driver)
+        sleep(2)
         mssn.send_receiver(self.receiver) # 输入收货人名
+        sleep(2)
         mssn.click_sex(self.sex) # 点击性别
+        sleep(2)
         mssn.send_cellphone_number(self.phone) # 输入手机号码
+        sleep(2)
         mssn.click_shopping_address() # 点击收货地址输入框
         ap = AddressPage(self.driver)
+        sleep(2)
         ap.send_search_address_input(self.address) # 输入地址信息
         ap.click_search_address_show_dfgc() # 点击显示为成都锦江区229号的结果
         sleep(2)
         mssn.send_building_number(self.building_number)
+        sleep(2)    
         mssn.click_school_lable() # 点击学校标签
         mssn.click_Save_the_shipping_address() #点击保存收货地址
 
     def tearDown(self) -> None:
         mss = MysShippingAddressPage(self.driver)
         mss.click_one_shipping_address_bianji() #点击第一个编辑框
+        sleep(2)
         mssn = MysShippingAddressNewAddShippingAddressPage(self.driver)
         mssn.click_delete_shopp_address() # 点击删除收回地址
 

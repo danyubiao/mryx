@@ -55,7 +55,7 @@ class MysPage(BasePage):
         self.click(self.help_get_free_locator)
     def click_set(self):
         """点击'设置'按钮"""
-        self.driver.find_element(*self.set_locator).click()
+        self.click(self.set_locator)
     def click_points_mall(self):
         """点击'积分商城'按钮"""
         self.driver.find_element(*self.points_mall_locator).click()
@@ -66,5 +66,8 @@ class MysPage(BasePage):
         """点击‘收益’按钮"""
         self.click(self.income_withdrawal_locator)
     def click_good_ticket(self):
-        """点击商品券"""
+        """点击优惠券"""
         self.click(self.good_ticket_locator)
+    def click_order_shipping(self):
+        """点击订单‘配送中’按钮"""
+        self.click(self. order_shipping_locator)

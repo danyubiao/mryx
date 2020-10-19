@@ -21,4 +21,5 @@ class ActivityMessagePage(BasePage):
 
     def text_activity_page_title(self):
         """获取活动界面的头文本"""
-        text = self.find_element(self.activity_page_title_locator)
+        text = self.text(self.activity_page_title_locator)
+        return text

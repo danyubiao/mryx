@@ -23,11 +23,12 @@ class TestCuetomerService(BaseCase):
     asserts = "不支持修改订单信息"
     def setUp(self) -> None:
         hp = HomePage(self.driver)
-        hp.click_mine()  # 点击我的
+        hp.click_mine_test()  # 点击我的
 
     def test_MRYX_ST_usr_004(self):
         """这是MRYX_ST_usr_004这一条测试用例"""
         mp = MysPage(self.driver)
+        mp.to_up()
         mp.click_customer_service()
         sleep(2)
         mcsp = MysCustomerServicePage(self.driver)
