@@ -11,7 +11,7 @@ from appium.webdriver.common.touch_action import TouchAction
 from conf.config import desired_capabilities
 
 from appium.webdriver.common.mobileby import MobileBy as By
-from cof import  config    #引入配置文件
+from conf import  config    #引入配置文件
 
 
 def open_mryx():
