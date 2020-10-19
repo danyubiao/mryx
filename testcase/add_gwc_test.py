@@ -13,14 +13,9 @@ class AddgwcTest(BaseCase):
         """MRYX_ST_classification_004"""
         """测试添加购物车"""
         add = AddGwcPage(self.driver)
-        sleep(5)
-        # 进入分类页面
-        add.going_fenlei()
-        sleep(5)
-        # 点击添加购物车
-        add.add_gwc()
-        # 断言添加购物车成功
-        dy = add.dy_add_gwc()
+        add.going_fenlei()              # 进入分类页面
+        add.add_gwc()                   # 点击添加购物车
+        dy = add.dy_add_gwc()           # 断言添加购物车成功
         self.assertEqual(dy, "1")
 
 
