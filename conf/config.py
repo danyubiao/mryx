@@ -6,6 +6,7 @@
 # @Project : mryx
 # 连接设备的信息
 import os
+
 desired_capabilites = {
     'platformName': 'Android',
     'deviceName': '127.0.0.1:62001',
