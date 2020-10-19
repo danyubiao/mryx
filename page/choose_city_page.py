@@ -1,18 +1,22 @@
-# @Time : 2020/10/19 10:24
-# @Author : 30037
-# @Email : 960364395@qq.com
+# -*- coding: utf-8 -*-
+# @Time : 2020/10/17 21:42
+# @Author : leo
+# @Email : oldbigdo@foxmail.com
 # @File : choose_city_page.py
 # @Project : mryx
-
+from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
-from selenium.webdriver.common.by import By
 
-"""首页选择城市的页面"""
+"""选择城市页面"""
 class ChooseCityPage(BasePage):
 
-    #选择城市的下拉框
-    city_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_select_support_city\"]')
-    #北京的定位
-    beijing_locator = (By.XPATH,'//android.widget.TextView[@text=\"北京市\"]')
-    #返回按钮
-    return_locator = (By.XPATH,'//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/ll_title_bar_left_button\"]')
+    """定位器"""
+
+    """城市输入"""
+    search_address_input_city_loc = (By.ID,"cn.missfresh.application:id/et_search_address_input")
+
+    """城市选择"""
+    search_address_choose_city_loc = (By.XPATH, "//android.widget.TextView[@text=\"成都市\"]")
+
+    """点击输入的城市"""
+    click_input_city_loc = (By.ID, "cn.missfresh.application:id/tvCity")

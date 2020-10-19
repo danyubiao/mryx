@@ -1,31 +1,20 @@
-# @Time : 2020/10/17 21:43
-# @Author : 30037
-# @Email : 960364395@qq.com
+# -*- coding: utf-8 -*-
+# @Time : 2020/10/15 22:43
+# @Author : 李洪侨
+# @Email : 1141511816@qq.com
 # @File : base_case.py
-# @Project : missfresh
-
-from page.home_page import HomePage
+# @Project : App_autotest
 import unittest
+from model.driver import driver
 from page.base_page import BasePage
-from page.home_page import HomePage
-from time import sleep
-from model.driver import open_mryx
-from page.choose_city_page import ChooseCityPage
 
 
 class BaseCase(unittest.TestCase):
+    driver = driver()
+    driver.implicitly_wait(30)
+    """用例的基类"""
+
+
     def setUp(self) -> None:
-        self.driver = open_mryx()
-        hp = HomePage(self.driver)
-        sleep(3)
-        hp.click(hp.adress_locator)
-        sleep(1)
-        ccp = ChooseCityPage(self.driver)
-        hp.click(ccp.city_locator)
-        sleep(1)
-        hp.click(ccp.beijing_locator)
-        sleep(1)
-        hp.click(ccp.return_locator)
-        sleep(1)
-        hp.click(hp.classify_locator)
-        sleep(1)
+        self.driver = driver()
+
