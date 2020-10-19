@@ -33,7 +33,7 @@ class ShoppingCartPage(BasePage):
     """全部价格"""
     all_price_loc = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
 
-    """全部价格"""
+    """去结算"""
     checkout_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
 
     """可用优惠券"""
