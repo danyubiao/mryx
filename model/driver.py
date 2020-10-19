@@ -14,6 +14,7 @@ from appium.webdriver.common.mobileby import MobileBy as By
 from conf.config import desired_capabilites    #引入配置文件
 
 
+
 def driver():
     desired_capabilities = {
         "platformName": "Android",  ###平台
@@ -25,9 +26,11 @@ def driver():
         "noReset": True,
         "unicodeKeyboard": True
     }
+
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
     driver.implicitly_wait(30)
     return driver
+
 
 
 
@@ -38,6 +41,5 @@ def app_mrsx():  #打开每日优鲜
     desired_capabilites.update(app_mryx)    #将每日优鲜的包名等信息追加到手机信息的字典，组成新的字典
     driver = webdriver.Remote('http://localhost:4723/wd/hub',desired_capabilites )   #使用手机进入每日生鲜
     return driver
-
 
 
