@@ -68,4 +68,17 @@ class FenleiPage(BasePage):
     def get_rmss(self):
         ele = self.driver.find_element(*self.rmss_locator)
         text = ele.text
+
+#封装定位器
+    fenlei_location =(By.ID,"cn.missfresh.application:id/classifyTab")
+#获取分类断言定位
+    fenlei_duanyan_locator=(By.ID,"cn.missfresh.application:id/tv_category_name")
+
+     #点击分类跳转
+    def click_dianji(self):
+        self.click(self.fenlei_location)
+
+    def duanyan_fenlei(self):
+        element= self.driver.find_element(*self.fenlei_duanyan_locator)
+        text= element.text
         return text

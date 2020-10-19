@@ -9,10 +9,10 @@ from page.base_page import BasePage
 
 """我的页面"""
 class ClassifyPage(BasePage):
-  
-    sort_by_price_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
-     # = (By.XPATH,'//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]')
 
+    sort_by_price_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
+    sort_by_price_locator1 = (By.XPATH, '//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/price_layout\"]')
+    #搜索框
     search_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search_text\"]')
     add_car_locator = (By.XPATH,'//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]')
     fruit_locator = (By.XPATH,'//android.widget.TextView[@text=\"时令水果\"]')
@@ -29,6 +29,9 @@ class ClassifyPage(BasePage):
     """点击后搜索框搜索框"""
     search_view_loc = (By.XPATH,"//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
 
+    """搜索"""
+    tv_search_loc = (By.ID, "cn.missfresh.application:id/tv_search")
+
     """搜索物品RecyclerView"""
     result_recycler_loc = (By.ID,"cn.missfresh.application:id/result_recycler")
 
@@ -41,3 +44,8 @@ class ClassifyPage(BasePage):
     """牛奶特仑苏"""
     suggest_contentt_loc = (By.ANDROID_UIAUTOMATOR,"new UiSelector().className(\"android.widget.TextView\")."
                                                    "textContains(\"牛奶特仑苏\").resourceId(\"cn.missfresh.application:id/suggestContent\")")
+    """搜索特仑苏牛奶后选择第一个产品"""
+    milk_terunshu_loc = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.FrameLayout[3]/android.widget.ImageView")
+
+    """搜索特仑苏牛奶后选择第一个产品的name"""
+    milk_terunshu_name_loc = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.TextView[1]")
