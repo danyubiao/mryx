@@ -7,16 +7,17 @@
 from page.base_page import BasePage
 from appium.webdriver.common.mobileby import MobileBy as By
 
-class SousuoPage(BasePage):
+class FenleiPage(BasePage):
     """进入搜索页面定位器"""
 
+    """MRYX_ST_classification_001"""
     """点击分类定位器"""
     fenlei_locator = (By.XPATH,"//android.widget.FrameLayout[1]/"
                                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
                                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
                                "android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.TextView[1]")
     """点击搜索定位器"""
-    fenlei_sousuo_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search_text\"]") #新增收货地址定位
+    fenlei_sousuo_locator = (By.ID,"cn.missfresh.application:id/tv_search_text") #新增收货地址定位
     """输入搜索内容定位器"""
     shuru_sousuo_locator = (By.XPATH,"//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
     """点击搜索定位器"""
@@ -49,3 +50,11 @@ class SousuoPage(BasePage):
         ele = self.driver.find_element(*self.zonghe_duanyan_locator)
         text = ele.text
         return text
+
+    """MRYX_ST_classification_002封装"""
+    """封装排序定位器"""
+    paixun_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
+    def click_paixu(self):
+        """封装排序方法"""
+        ele = self.driver.find_element(*self.paixun_locator)
+        ele.click()

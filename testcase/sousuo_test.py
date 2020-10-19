@@ -4,19 +4,18 @@
 # @File : sousuo_test.py
 # @Project : mryx
 
-from page.base_page import BasePage
-from model.driver import driver
+# from page.base_page import BasePage
+# from model.driver import driver
 from time import sleep
 import unittest
-from appium.webdriver.common.mobileby import MobileBy as By
-from page.fenlei_page import SousuoPage
+from page.fenlei_page import FenleiPage
 from testcase.base_case import BaseCase
 
 class SousuoTest(BaseCase):
     def test_sousuo(self):
         """MRYX_ST_classification_001"""
         """搜索测试"""
-        sousuo = SousuoPage(self.driver)
+        sousuo = FenleiPage(self.driver)
         # 进入分类页面
         sleep(2)
         sousuo.going_fenlei()
@@ -32,6 +31,15 @@ class SousuoTest(BaseCase):
         dy = sousuo.get_zonghe()
         self.assertEqual(dy, "综合")
 
+    # def test_paixu(self):
+    #     """MRYX_ST_classification_002"""
+    #     """排序测试"""
+    #     px = FenleiPage(self.driver)
+    #     sleep(2)
+    #     # 进入分类页面
+    #     px.going_fenlei()
+    #     # 点击排序
+    #     px.click_paixu()
 
 if __name__ == '__main__':
     unittest.main()
