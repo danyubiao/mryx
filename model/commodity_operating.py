@@ -50,9 +50,9 @@ def count_price(driver,*loc):
     for LinearLayout in LinearLayouts[2:]:
         try:
             price = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/pstv_left_price").get_attribute("text")
-
-            goods_name.append()
+            good_name = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text")
+            goods_name.append(good_name)
             sum = sum + float(price)
-            return sum
+            return sum,goods_name
         except Exception:
             pass

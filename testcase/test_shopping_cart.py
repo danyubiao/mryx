@@ -8,7 +8,7 @@ import unittest
 from model.driver import driver
 from page.classify_page import ClassifyPage
 from page.home_page import HomePage
-from model.commodity_operating import guess_like_shop,commodity_operating,guess_like_shop_add
+from model.commodity_operating import guess_like_shop,commodity_operating,guess_like_shop_add,count_price
 from page.shopping_cart_page import ShoppingCartPage
 from page.go_coudan_page import GoCoudanPage
 from page.order_fill_page import OrderFillPage
@@ -171,7 +171,6 @@ class TestShoppingCart(unittest.TestCase):
         spcp.click(spcp.delete_the_goods_loc)          #点击删除
         spcp.click(spcp.ensure_delete_the_goods_loc)  # 确认删除
 
-
     def test_delete_goods_case(self):
         """购物车删除商品"""
         hm = HomePage(self.driver)
@@ -189,12 +188,41 @@ class TestShoppingCart(unittest.TestCase):
             co[0].click()  # 选择要删除的商品
             spcp.click(spcp.delete_the_goods_loc)  # 点击删除
             spcp.click(spcp.ensure_delete_the_goods_loc)  # 确认删除
+            cp = count_price(self.driver, spcp.shopping_cart_recycleview_loc)     #获取商品名列表
         except Exception:
             spcp.click(spcp.close_btn_new_loc)              #如果有新人专享关闭新人专享
             co[0].click()  # 选择要删除的商品
             spcp.click(spcp.delete_the_goods_loc)  # 点击删除
             spcp.click(spcp.ensure_delete_the_goods_loc)  # 确认删除
-        self.assertEqual()
+            cp = count_price(self.driver, spcp.shopping_cart_recycleview_loc)
+        self.assertNotIn(co[5].text,cp[1])                     #断言
+
+    def test_all_select_case(self):
+        """购物车全选商品"""
+        hm = HomePage(self.driver)
+        hm.click(hm.classify_tab_loc)  # 点击分类标签
+        cifp = ClassifyPage(self.driver)  # 实例化商品分类页
+        cifp.click(cifp.cart_view_loc)  # 点击搜索框
+        cifp.send_keys(cifp.search_view_loc, "牛奶")  # 输入牛奶
+        cifp.click(cifp.suggest_contentt_loc)  # 点击特仑苏牛奶
+        gls = guess_like_shop(self.driver, "特仑苏纯牛奶", cifp.result_recycler_loc)  # 选择包含特仑苏纯牛奶的商品
+        spcp = ShoppingCartPage(self.driver)  # 实例化购物车页面
+        cifp.click(cifp.buy_now_loc, gls)  # 点击
+        cifp.click(cifp.cart_view_loc)  # 跳转购物车页面
+        try:
+            glsa  = guess_like_shop_add(self.driver,1,spcp.shopping_cart_recycleview_loc)
+            glsa.click()                                                    #选择猜你喜欢的商品
+        except Exception:
+            spcp.click(spcp.close_btn_new_loc)  # 如果有新人专享关闭新人专享
+            glsa  = guess_like_shop_add(self.driver,1,spcp.shopping_cart_recycleview_loc)
+            glsa.click()
+        spcp.click(spcp.select_all_loc)                                         #全选
+        cp = count_price(self.driver, spcp.shopping_cart_recycleview_loc)       #统计价格
+        self.assertEqual(cp[0],float(spcp.text(spcp.all_price_loc)))         #断言
+        spcp.click(spcp.delete_the_goods_loc)                              #删除商品
+        spcp.click(spcp.ensure_delete_the_goods_loc)                      #确认删除
+
+
 
 
 
