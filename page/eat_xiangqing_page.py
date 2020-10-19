@@ -21,6 +21,17 @@ class EatXiangQingPage(BasePage):
     shoucang_loc=(By.ID,'cn.missfresh.application:id/iv_collect')
     # 点赞图标定位器
     dianzan_loc=(By.ID,'cn.missfresh.application:id/iv_like')
+    # 购物车图标定位器
+    gouwuche_loc=(By.XPATH,'//android.widget.ImageView[@resource-id=\"cn.missfresh.'
+                           'application:id/iv_food_shopping_cart_img\"]')
+    # 评论内容定位器
+    pinglun_neirong_loc=(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.'
+                                  'LinearLayout/android.widget.FrameLayout/android.widget.'
+                                  'LinearLayout/android.widget.FrameLayout/android.widget.'
+                                  'LinearLayout/android.view.ViewGroup/android.widget.'
+                                  'FrameLayout/android.view.ViewGroup/androidx.recyclerview.'
+                                  'widget.RecyclerView/android.view.ViewGroup[1]/android.widget.'
+                                  'TextView[1]')
 
 
     def pinglun_click(self):
@@ -36,8 +47,14 @@ class EatXiangQingPage(BasePage):
         # 点击点赞
         self.click(self.dianzan_loc)
 
+    def gouwuche_find(self):
+        # 找到购物车图标
+        self.find_element(self.gouwuche_loc)
 
-
+    def pinglunneirong_text(self):
+        # 找到评论的用户名称
+        text=self.find_element(self.pinglun_neirong_loc).text
+        return text
 
 
 
