@@ -14,12 +14,16 @@ class CartPage(BasePage):
     assert_case001_locator = (
         By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_location\"]")  ###第一条用例断言定位器
     cart_price_locator = (By.ID, "cn.missfresh.application:id/pstv_left_price")  ###价格定位器
-    cart_number_locator = (By.ID, "cn.missfresh.application:id/cartNumTv")
+    cart_number_locator = (By.ID, "cn.missfresh.application:id/cartNumTv")  ###购物车数量定位器
+    buy_module_locator = (By.ID, "cn.missfresh.application:id/ll_buy_product_bg")  ###商品模块定位器
+    ensure_locator = (By.ID, "cn.missfresh.application:id/tv_ensure")  ###确认删除定位器
+    drop_locator = (By.ID, "cn.missfresh.application:id/tv_delete")  ###删除购物车定位器
+    text_locator = (By.ID,"cn.missfresh.application:id/tv_product_name")
     """在购物车减少商品数量"""
 
     def decrease(self, no=None):
-        sub_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【+】的定位器
-        elements = self.driver.find_elements(sub_locator)
+        sub_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【-】的定位器
+        elements = self.find_elements(sub_locator)
         ele = []
         for i in elements:
             ele.append(i)
@@ -35,7 +39,7 @@ class CartPage(BasePage):
 
     def crease(self, no=None):
         add_locator = (By.ID, "cn.missfresh.application:id/iv_product_add")  ###【+】的定位器
-        elements = self.driver.find_elements(add_locator)
+        elements = self.find_elements(add_locator)
         ele = []
         for i in elements:
             ele.append(i)
@@ -66,7 +70,5 @@ class CartPage(BasePage):
     """删除购物车"""
 
     def drop_cart(self):
-        drop_locator = (By.ID, "cn.missfresh.application:id/tv_delete")
-        ensure_locator = (By.ID, "cn.missfresh.application:id/tv_ensure")
-        self.click(drop_locator)
-        self.click(ensure_locator)
+        self.click(self.drop_locator)
+        self.click(self.ensure_locator)

@@ -5,6 +5,7 @@
 # @File : cart_testcases.py
 # @Project : appium_test
 import unittest
+from selenium.common.exceptions import NoSuchElementException
 from testcase.base_case import BaseCase
 from page.base_page import BasePage
 from page.sort_page import SortPage
@@ -61,10 +62,67 @@ class CartTest(BaseCase):
     #     cp = CartPage(self.driver)  ###删除购物车
     #     cp.drop_cart()  ###删除购物车
 
-    def test_004(self):
-        """MRYX_ST_shop004:验证购物车结算功能_正确显示商品的金额"""
-        bp =BasePage(self.driver)
+    # def test_004(self):
+    #     """MRYX_ST_shop004:验证购物车结算功能_正确显示商品的金额"""
+    #     bp = BasePage(self.driver)
+    #     bp.click(HomePage.sort_locator)
+    #     sleep(5)
+    #     bp.choose(SortPage.buy_locator, [1, 2, 3, 4])
+    #     """获取断言信息"""
+    #     sp = SortPage(self.driver)
+    #     sortprice = sp.sortprice(4)
+    #     bp.click(HomePage.cart_locator)
+    #     sleep(3)
+    #     cp = CartPage(self.driver)
+    #     cartprice = cp.cart_price(4)
+    #     """断言"""
+    #     self.assertEqual(sortprice, cartprice)
+    #     cp = CartPage(self.driver)  ###删除购物车
+    #     cp.drop_cart()  ###删除购物车
+    # def test_005(self):
+    #     """MRYX_ST_shop005:验证购物车删除功能_清空购物车"""
+    #     bp = BasePage(self.driver)
+    #     bp.click(HomePage.sort_locator)
+    #     bp.choose(SortPage.buy_locator, [1, 2, 3, 4])
+    #     bp.click(HomePage.cart_locator)
+    #     bp.find_element(CartPage.buy_module_locator)
+    #     cp = CartPage(self.driver)
+    #     cp.drop_cart()  ###删除购物车
+    #     try:
+    #         bp.find_element(CartPage.buy_module_locator)
+    #     except NoSuchElementException:
+    #         self.assertEqual(1, 1)
+    #     else:
+    #         self.assertEqual(1, 2)
+
+    # def test_006(self):
+    #     """MRYX_ST_shop006:验证购物车删除功能_不完全删除"""
+    #     bp = BasePage(self.driver)
+    #     bp.click(HomePage.sort_locator)
+    #     bp.choose(SortPage.buy_locator, [1, 2])
+    #     """获取断言内容"""
+    #     assert_sort = bp.find_elements(SortPage.assert_locator)
+    #     assert_sort_text = assert_sort[0].text
+    #     bp.click(HomePage.cart_locator)
+    #     cp = CartPage(self.driver)
+    #     cp.decrease(1)
+    #     cp.click(CartPage.ensure_locator)
+    #     sleep(5)
+    #     element = bp.find_elements(CartPage.buy_module_locator)
+    #     num = len(element)
+    #     assert_cart_text = cp.find_element(CartPage.text_locator, element).text
+    #     self.assertEqual(num, 1)
+    #     self.assertEqual(assert_sort_text, assert_cart_text)
+    #     cp.drop_cart()
+
+    def test_007(self):
+        """MRYX_ST_shop007:验证购物车结算功能_不勾选【全选】"""
+        bp = BasePage(self.driver)
         bp.click(HomePage.sort_locator)
+        bp.choose(SortPage.buy_locator, [1, 2])
+        bp.click(HomePage.cart_locator)
+
+
 
 
 if __name__ == '__main__':
