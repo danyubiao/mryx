@@ -29,7 +29,10 @@ class TestShoppingCart(unittest.TestCase):
         """商品添加购物车"""
         sleep(5)
         hm = HomePage(self.driver)
-        hm.click(hm.classify_tab_loc)        #点击分类标签
+        try:
+            hm.click(hm.classify_tab_loc)        #点击分类标签
+        except Exception:
+            hm.click(hm.classify_tab_loc)        #点击分类标签
         cifp = ClassifyPage(self.driver)    #实例化商品分类页
         sleep(2)
         cifp.click(cifp.search_text_loc)      #点击搜索框
@@ -37,71 +40,66 @@ class TestShoppingCart(unittest.TestCase):
         cifp.send_keys(cifp.search_view_loc,"特仑苏纯牛奶")        #输入牛奶
         cifp.click(cifp.tv_search_loc)             #点击搜索
         sleep(3)
-        gls = guess_like_shop(self.driver,"蒙牛特仑苏脱脂纯牛奶早餐奶",cifp.result_recycler_loc)   #选择包含特仑苏纯牛奶的商品
-        cifp.click(cifp.buy_now_loc,gls)                                           #点击
+        cifp.click(cifp.milk_terunshu_loc)
+        text1 = cifp.text(cifp.milk_terunshu_name_loc).strip("热销")
         cifp.click(cifp.cart_view_loc)                  #跳转购物车页面
         spcp = ShoppingCartPage(self.driver)                        #实例化购物车页面
-        try:
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-        except Exception:
-            spcp.click(spcp.close_btn_new_loc)              #如果有新人专享关闭新人专享
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-        self.assertEqual(co[5].text,cifp.text(cifp.buy_now_loc,gls))        #断言
-        co[2].click()                                                      #点击删除
+        text2 = spcp.text(spcp.milk_name_loc)                #获取加入购物车商品名
+        self.assertEqual(text1,text2)        #断言
+        spcp.click(spcp.delete_the_goods_loc)                                                      #点击删除
         spcp.click(spcp.ensure_delete_the_goods_loc)
 
     def test_shopping_cart_add_case(self):
         """增加购物车商品个数"""
+        sleep(5)
         hm = HomePage(self.driver)
-        hm.click(hm.classify_tab_loc)  # 点击分类标签
-        cifp = ClassifyPage(self.driver)  # 实例化商品分类页
-        cifp.click(cifp.search_text_loc)  # 点击搜索框
-        cifp.send_keys(cifp.search_view_loc, "牛奶")  # 输入牛奶
-        cifp.click(cifp.suggest_contentt_loc)  # 点击特仑苏牛奶
-        gls = guess_like_shop(self.driver, "特仑苏纯牛奶", cifp.result_recycler_loc)  # 选择包含特仑苏纯牛奶的商品
-        spcp = ShoppingCartPage(self.driver)  # 实例化购物车页面
-        cifp.click(cifp.buy_now_loc, gls)  # 点击
-        cifp.click(cifp.cart_view_loc)                  #跳转购物车页面
         try:
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-            co[1].click()  # 点击增加
+            hm.click(hm.classify_tab_loc)  # 点击分类标签
         except Exception:
-            spcp.click(spcp.close_btn_new_loc)              #如果有新人专享关闭新人专享
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-            co[1].click()  # 点击增加
-        number1 = int(co[4].text())
-        co[1].click() # 点击增加
-        number2 = int(co[4].text())
+            hm.click(hm.classify_tab_loc)  # 点击分类标签
+        cifp = ClassifyPage(self.driver)  # 实例化商品分类页
+        sleep(2)
+        cifp.click(cifp.search_text_loc)  # 点击搜索框
+        sleep(2)
+        cifp.send_keys(cifp.search_view_loc, "特仑苏纯牛奶")  # 输入牛奶
+        cifp.click(cifp.tv_search_loc)  # 点击搜索
+        sleep(3)
+        cifp.click(cifp.milk_terunshu_loc)             #点击牛奶
+        cifp.click(cifp.cart_view_loc)  # 跳转购物车页面
+        spcp = ShoppingCartPage(self.driver)  # 实例化购物车页面
+        number1 = int(spcp.text(spcp.count_shopping_loc))
+        spcp.click(spcp.add_shopping_loc)                 #点击增加
+        number2 = int(spcp.text(spcp.count_shopping_loc))
         self.assertTrue(number2 > number1)  # 断言
-        for i in range(int(number2)):
-            co[2].click()  # 点击删除
-        spcp.click(spcp.ensure_delete_the_goods_loc)      #确认删除
+        spcp.click(spcp.delete_the_goods_loc)  # 点击删除
+        spcp.click(spcp.ensure_delete_the_goods_loc)
+
 
     def test_shopping_cart_subtract_case(self):
         """减少购物车商品个数"""
+        sleep(5)
         hm = HomePage(self.driver)
-        hm.click(hm.classify_tab_loc)  # 点击分类标签
-        cifp = ClassifyPage(self.driver)  # 实例化商品分类页
-        cifp.click(cifp.search_text_loc)  # 点击搜索框
-        cifp.send_keys(cifp.search_view_loc, "牛奶")  # 输入牛奶
-        cifp.click(cifp.suggest_contentt_loc)  # 点击特仑苏牛奶
-        gls = guess_like_shop(self.driver, "特仑苏纯牛奶", cifp.result_recycler_loc)  # 选择包含特仑苏纯牛奶的商品
-        spcp = ShoppingCartPage(self.driver)  # 实例化购物车页面
-        cifp.click(cifp.buy_now_loc, gls)  # 点击
-        cifp.click(cifp.cart_view_loc)                  #跳转购物车页面
         try:
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-            co[1].click()  # 点击增加
+            hm.click(hm.classify_tab_loc)  # 点击分类标签
         except Exception:
-            spcp.click(spcp.close_btn_new_loc)              #如果有新人专享关闭新人专享
-            co = commodity_operating(self.driver, spcp.shopping_cart_recycleview_loc, "特仑苏纯牛奶")
-            co[1].click()  # 点击增加
-        number1 = int(co[4].text())
-        co[2].click()
-        number2 = int(co[4].text())
+            hm.click(hm.classify_tab_loc)  # 点击分类标签
+        cifp = ClassifyPage(self.driver)  # 实例化商品分类页
+        sleep(2)
+        cifp.click(cifp.search_text_loc)  # 点击搜索框
+        sleep(2)
+        cifp.send_keys(cifp.search_view_loc, "特仑苏纯牛奶")  # 输入牛奶
+        cifp.click(cifp.tv_search_loc)  # 点击搜索
+        sleep(3)
+        cifp.click(cifp.milk_terunshu_loc)  # 点击牛奶
+        cifp.click(cifp.cart_view_loc)  # 跳转购物车页面
+        spcp = ShoppingCartPage(self.driver)  # 实例化购物车页面
+        spcp.click(spcp.add_shopping_loc)  # 点击增加
+        number1 = int(spcp.text(spcp.count_shopping_loc))
+        spcp.click(spcp.sub_shopping_loc)   #减少
+        number2 = int(spcp.text(spcp.count_shopping_loc))
         self.assertTrue(number2 < number1)  # 断言
-        co[2].click()  # 点击删除
-        spcp.click(spcp.ensure_delete_the_goods_loc)  # 确认删除
+        spcp.click(spcp.delete_the_goods_loc)  # 点击删除
+        spcp.click(spcp.ensure_delete_the_goods_loc)
 
     def test_add_shopping_guess_you_like_case(self):
         """购物车猜你喜欢添加商品"""
