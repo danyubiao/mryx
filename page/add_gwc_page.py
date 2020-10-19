@@ -12,17 +12,14 @@ class AddGwcPage(BasePage):
     """添加购物车方法封装"""
 
     """点击分类定位器"""
-    fenlei_locator = (By.XPATH, "//android.widget.FrameLayout[1]/"
-                                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
-                                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/"
-                                "android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.TextView[1]")
+    fenlei_locator = (By.ID, "cn.missfresh.application:id/classifyTab")
     """点击添加购物车定位器封装"""
-    add_gwc_locator = (By.XPATH,"//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]"
+    add_gwc_locator = (By.XPATH, "//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]"
                                 "/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/"
                                 "android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/"
                                 "android.widget.FrameLayout[1]/android.widget.ImageView[1]")
     """断言添加成功定位器"""
-    dy_addgwc_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_main_item_product_count\"]")
+    dy_addgwc_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_main_item_product_count\"]")
 
     def going_fenlei(self):
         """封装进入分类页面方法"""
