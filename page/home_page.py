@@ -6,12 +6,8 @@
 # @Project : mryx
 """这是每日优鲜的首页界面"""
 
-
 from appium.webdriver.common.mobileby import MobileBy as By
 from page.base_page import BasePage
-
-
-
 
 """我的页面"""
 class HomePage(BasePage):
@@ -45,3 +41,8 @@ class HomePage(BasePage):
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)
+
+
+    def click_sort(self):
+        """点击‘分类’按钮"""
+        self.driver.find_element(*self.sort_locator).click()
