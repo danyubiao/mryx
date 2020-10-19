@@ -4,10 +4,7 @@
 # @Email : xgtlz@gmail.com
 # @File : base_page.py
 # @Project : App_autotest
-from model.driver import driver
-from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
-from model.driver import webdriver_remote
 from selenium.webdriver.remote.webelement import WebElement
 
 
