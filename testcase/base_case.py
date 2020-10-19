@@ -10,7 +10,7 @@ from page.base_page import BasePage
 from page.home_page import HomePage
 from time import sleep
 from model.driver import open_mryx
-from page.choose_city_locator import ChooseCityPage
+from page.choose_city_page import ChooseCityPage
 
 
 class BaseCase(unittest.TestCase):
