@@ -28,6 +28,9 @@ class EatPage(BasePage):
                         'LinearLayout/android.widget.LinearLayout/android.widget.HorizontalScrollView'
                         '/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.TextView')
 
+    # 精选专题定位器
+    jingxuan_loc=(By.ID,'cn.missfresh.application:id/tv_rsc_site_title')
+
     def find_click(self):
         """点击输入框"""
         self.click(self.find_loc)
@@ -43,4 +46,7 @@ class EatPage(BasePage):
     def caipu_click(self):
         # 点击菜谱
         self.click(self.caipu_loc)
-
+    def jingxun_text(self):
+        # 获取精选专题这个文本
+        text=self.text(self.jingxuan_loc)
+        return text
