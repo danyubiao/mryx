@@ -45,7 +45,9 @@ class HomePage(BasePage):
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)
-    home_location= (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]")
+
+
+    home_location= (By.ID,"cn.missfresh.application:id/classifyTab")
 
     # 搜索框定位
     sousuo= (By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
