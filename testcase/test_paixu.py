@@ -1,7 +1,7 @@
 # @Time : 2020/10/17 23:42
 # @Author : 帅帅
 # @Email : 2636419668@qq.com
-# @File : paixu_test.py
+# @File : test_paixu.py
 # @Project : mryx
 from page.paixun_page import PaixuPage
 import unittest

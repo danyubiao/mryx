@@ -1,7 +1,7 @@
 # @Time : 2020/10/19 10:46
 # @Author : 帅帅
 # @Email : 2636419668@qq.com
-# @File : add_gwc_test.py
+# @File : test_add_gwc.py
 # @Project : mryx
 from time import sleep
 import unittest
