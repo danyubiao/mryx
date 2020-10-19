@@ -17,7 +17,7 @@ from page.user_biji_page import UserBiJi
 from page.eat_xiangqing_pinglun_page import XiangQingPinglunPage
 
 class TestInToEat(TestBase):
-    username='小鲜_XB2Y0V'
+
 
     def setUp(self) -> None:
         TestBase.setUp(self)  # 打开app
@@ -79,19 +79,6 @@ class TestInToEat(TestBase):
 
 
 
-    def test_pinglun(self):
-        """评论输入内容成功
-        MRYX_ST_eat_006"""
-
-        self.hp.eat_click()  # 点击吃什么
-        self.ep.first_click()  # 点击第一个菜谱
-        self.xq.pinglun_click()  #点击评论框
-        pl=XiangQingPinglunPage(self.driver)   #实例化评论页面
-        pl.pinglun_send('你真棒呀！')   #输入评论
-        pl.fasong_click()   #点击发送
-        # 断言
-        text=self.xq.pinglunneirong_text()  #获取第一条评论的用户名
-        self.assertEqual(self.username,'小鲜_XB2Y0V')   #断言第一条评论是我发的
 
 
 
