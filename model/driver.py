@@ -18,7 +18,7 @@ def driver():
     desired_capabilities = {
         "platformName": "Android",  ###平台
         "deviceName": "127.0.0.1:62001",  ###设备信息
-        "platformVersion": "7.1.2",  ###版本号
+        "platformVersion": "5.1.1",  ###版本号
         "appPackage": "cn.missfresh.application",  ###包名
         "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",  ###Activity
         'automationName': 'UiAutomator1',
@@ -27,7 +27,6 @@ def driver():
     }
 
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
-
     driver.implicitly_wait(30)
     return driver
 
