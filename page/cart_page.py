@@ -18,12 +18,19 @@ class CartPage(BasePage):
     buy_module_locator = (By.ID, "cn.missfresh.application:id/ll_buy_product_bg")  ###商品模块定位器
     ensure_locator = (By.ID, "cn.missfresh.application:id/tv_ensure")  ###确认删除定位器
     drop_locator = (By.ID, "cn.missfresh.application:id/tv_delete")  ###删除购物车定位器
-    text_locator = (By.ID,"cn.missfresh.application:id/tv_product_name")
+    text_locator = (By.ID, "cn.missfresh.application:id/tv_product_name")  ###购物车商品名称定位器
+    choose_all_locator = (By.ID, "cn.missfresh.application:id/cb_select_all")  ###【全选】按钮定位器
+    all_prince_locator = (By.ID, "cn.missfresh.application:id/tv_price")  ###所有价格定位器
+    cloud_market_locator = (By.XPATH,
+                            "//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/sticky\"]/android.widget.ImageView[1]")  ###云超特卖定位器
+    choose_signal_locator = (By.ID, "cn.missfresh.application:id/iv_product_check")  ###单选框定位器
+    add_goods_locator = (By.ID, "cn.missfresh.application:id/iv_product_add")  ###【+】定位器
+    sub_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【-】的定位器
     """在购物车减少商品数量"""
 
     def decrease(self, no=None):
-        sub_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【-】的定位器
-        elements = self.find_elements(sub_locator)
+
+        elements = self.find_elements(self.sub_locator)
         ele = []
         for i in elements:
             ele.append(i)
@@ -38,8 +45,7 @@ class CartPage(BasePage):
     """在购物车增加商品数量"""
 
     def crease(self, no=None):
-        add_locator = (By.ID, "cn.missfresh.application:id/iv_product_add")  ###【+】的定位器
-        elements = self.find_elements(add_locator)
+        elements = self.find_elements(self.add_goods_locator)
         ele = []
         for i in elements:
             ele.append(i)
