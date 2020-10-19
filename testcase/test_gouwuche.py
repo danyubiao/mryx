@@ -22,5 +22,7 @@ class GouWuChe(BaseCase):
         sleep(2)
         gw.click_dianji()
         sleep(2)
+        text = gw.duanyan_gw()
+        self.assertEqual(text, "删除")
 if __name__ == '__main__':
     unittest.main()
