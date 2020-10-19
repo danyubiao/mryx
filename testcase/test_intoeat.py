@@ -27,16 +27,25 @@ class TestInToEat(TestBase):
         self.hp = HomePage(self.driver)
         self.hp.eat_click()  # 点击吃什么
 
+        # 断言
+        self.ep = EatPage(self.driver)  # 实例化吃什么页面
+        text=self.ep.jingxun_text()   #获取页面里版面的文本
+        self.assertEqual(text,'精选专题')   #断言版面标题是精选专题
+
     def test_sousuo(self):
         """输入内容搜索菜谱成功
         MRYX_ST_eat_002"""
 
         self.hp.eat_click()  # 点击吃什么
-        self.ep = EatPage(self.driver)  # 实例化吃什么页面
         self.ep.find_click()  # 点击搜索
         self.find = FindPage(self.driver)  # 实例化搜索页面
         self.find.find_send("土豆烧排骨")  # 输入内容
         self.find.sousuo_click()  # 点击搜索
+        # 断言
+        text=self.find.nerong_text()   #获取搜索内容的文本
+        self.assertIn('土豆排骨',text)    #断言内容包含土豆排骨
+        
+
 
     def test_caipu(self):
         """查看菜谱页面
