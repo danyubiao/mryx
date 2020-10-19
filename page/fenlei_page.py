@@ -51,8 +51,7 @@ class SousuoPage(BasePage):
         return text
 class FenLei(BasePage):
 #封装定位器
-    fenlei_location =(By.XPATH,"//android.widget.TextView[@resource-id=" 
-                          "\"cn.missfresh.application:id/classifyTab\"]")
+    fenlei_location =(By.ID,"cn.missfresh.application:id/classifyTab")
 
      #点击分类跳转
     def click_dianji(self):
