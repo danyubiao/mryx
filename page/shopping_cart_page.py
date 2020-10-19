@@ -41,3 +41,6 @@ class ShoppingCartPage(BasePage):
 
     """去凑单"""
     go_coudan_loc = (By.XPATH,'//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_coupon\"]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]')
+
+    """关闭新人专享页"""
+    close_btn_new_loc = (By.ID, "cn.missfresh.application:id/close_btn")
