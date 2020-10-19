@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # @Time : 2020/10/15 23:09
 # @Author : 李洪侨
 # @Email : 1141511816@qq.com
@@ -18,7 +17,7 @@ from page.base_page import BasePage
 class HomePage(BasePage):
     """定位器"""
 
-    
+
     classify_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]')
     adress_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/address_tv\"]')
     city_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_select_support_city\"]')
@@ -30,11 +29,11 @@ class HomePage(BasePage):
     cart_tab_loc = (By.ID,"cn.missfresh.application:id/cartTab")
 
     """封装进入【主页】元素的定位器"""
-    ###.ANDROID_UIAUTOMATOR【分类】定位器
+    ###【分类】定位器
     sort_locator = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("cn.missfresh.application:id/classifyTab")')
-    ###XPATH【购物车】定位器
+    ###【购物车】定位器
     cart_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
-    ###XPATH【我的】定位器
+    ###【我的】定位器
     mine_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/mineTab\"]")
     # 吃什么页面的定位器
     eat_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("吃什么")')
