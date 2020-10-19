@@ -3,12 +3,8 @@
 # @Email : 2636419668@qq.com
 # @File : paixu_test.py
 # @Project : mryx
-from time import sleep
-import unittest
 from page.paixun_page import PaixuPage
-from model.driver import driver
 import unittest
-from page.fenlei_page import SousuoPage
 from testcase.base_case import BaseCase
 
 class PaixuTest(BaseCase):
