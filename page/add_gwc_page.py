@@ -9,17 +9,14 @@ from appium.webdriver.common.mobileby import MobileBy as By
 
 
 class AddGwcPage(BasePage):
-    """添加购物车方法封装"""
+    """MRYX_ST_classification_004封装"""
 
     """点击分类定位器"""
     fenlei_locator = (By.ID, "cn.missfresh.application:id/classifyTab")
     """点击添加购物车定位器封装"""
-    add_gwc_locator = (By.XPATH, "//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]"
-                                "/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/"
-                                "android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/"
-                                "android.widget.FrameLayout[1]/android.widget.ImageView[1]")
+    add_gwc_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")
     """断言添加成功定位器"""
-    dy_addgwc_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_main_item_product_count\"]")
+    dy_addgwc_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartNumTv\"]")
 
     def going_fenlei(self):
         """封装进入分类页面方法"""
@@ -36,3 +33,7 @@ class AddGwcPage(BasePage):
         ele = self.driver.find_element(*self.dy_addgwc_locator)
         text = ele.text
         return text
+
+    def hd_screen(self):
+        """滑动屏幕"""
+        self.driver.swipe(400,850,400,820)
