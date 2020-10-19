@@ -14,7 +14,6 @@ from appium.webdriver.common.mobileby import MobileBy as By
 from conf.config import desired_capabilites    #引入配置文件
 
 
-
 def driver():
     desired_capabilities = {
         "platformName": "Android",  ###平台
