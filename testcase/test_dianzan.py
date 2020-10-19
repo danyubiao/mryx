@@ -6,7 +6,7 @@
 # @Project : mryx
 
 
-import unittest
+
 from page.eat_page import EatPage
 from page.home_page import HomePage
 from testcase.test_base import TestBase
@@ -17,9 +17,12 @@ class TestDianZan(TestBase):
         TestBase.setUp(self)  # 打开app
 
     def test_dianzan(self):
+        """点赞成功
+        MRYX_ST_eat_007"""
+
         hp = HomePage(self.driver)  #实例化主页
         ep = EatPage(self.driver)  # 实例化吃什么页面
         hp.eat_click()  # 点击吃什么
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
-        xq.dianzan_click()
+        xq.dianzan_click()  #点击点赞
