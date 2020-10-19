@@ -14,6 +14,7 @@ class CartPage(BasePage):
     assert_case001_locator = (
         By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_location\"]")  ###第一条用例断言定位器
     cart_price_locator = (By.ID, "cn.missfresh.application:id/pstv_left_price")  ###价格定位器
+    cart_number_locator = (By.ID, "cn.missfresh.application:id/cartNumTv")
     """在购物车减少商品数量"""
 
     def decrease(self, no=None):

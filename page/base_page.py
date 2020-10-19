@@ -7,48 +7,52 @@
 from model.driver import driver
 from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
-from model.driver import webdriver_remote
 from selenium.webdriver.remote.webelement import WebElement
+from model.driver import driver
 
 
 class BasePage():
     """页面的基页面"""
-    def __init__(self,driver):
+
+    def __init__(self, driver):
         """初始属性driver"""
         self.driver = driver
 
     """缩写find_element"""
-    def find_element(self, locator,element=None):
+
+    def find_element(self, locator, element=None):
         """封装查找单个元素"""
-        if element and isinstance(element, WebElement):    #如果元素为真并且是WebElement
+        if element and isinstance(element, WebElement):  # 如果元素为真并且是WebElement
             return element.find_element(*locator)
         return self.driver.find_element(*locator)
 
     def find_elements(self, locator, elements=None):
         """封装查找元素列表"""
         if elements and isinstance(elements, WebElement):
-            return elements.find_element(*locator)
+            return elements.find_elements(*locator)
         return self.driver.find_elements(*locator)
 
     # 输入内容
-    def send_keys(self,locator,text,element=None):
+    def send_keys(self, locator, text, element=None):
         """
         :param element: 元素对象
         :param text: 输入的内容
         :return:
         """
-        return self.find_element(locator,element).send_keys(text)
+        return self.find_element(locator, element).send_keys(text)
 
     """点击"""
-    def click(self,locator,element=None):
-        self.find_element(locator,element).click()
+
+    def click(self, locator, element=None):
+        self.find_element(locator, element).click()
 
     """获取内容"""
-    def text(self,locator,element=None):
-        self.find_element(locator,element).text()
 
+    def text(self, locator, element=None):
+        self.find_element(locator, element).text()
 
     """清除输入框"""
+
     def clear(self, locator):
         """清除输入框"""
         self.find_element(*locator).clear()
@@ -59,22 +63,20 @@ class BasePage():
 
     """封装添加商品的方法"""
 
-    def choose(self, no=None):
-        buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
-        elements = self.driver.find_elements(buy_locator)
+    def choose(self, locator, no=None):
+        expr = '//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[{}]'
         ele = []
-        for i in elements:
-            ele.append(i)
+        for i in range(1, 6):
+            expr_locator = (By.XPATH, expr.format(i))
+            ele.append(self.find_element(expr_locator))
         if no and isinstance(no, list):
             for i in no:
-                ele[i - 1].click()
-        elif no and isinstance(no, int):
-            ele[no - 1].click()
+                ele[i - 1].find_element(*locator).click()
         else:
-            print("你输入的数字不合法")
-
+            print("您输入的数据不合法，请输入一个列表")
 
     """获取窗口大小，返回宽和y高的值"""
+
     def window_size(self):
         """获取窗口大小，返回宽和y高的值"""
         window_size_dict = self.driver.get_window_size()  # 获取窗口大小
@@ -83,6 +85,7 @@ class BasePage():
         return x, y
 
     """向上滑动,传参持续时间"""
+
     def to_up(self, duration=5000):
         """向上滑动,传参持续时间"""
         x, y = self.window_size()
@@ -92,7 +95,8 @@ class BasePage():
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
     """向下滑动,传参持续时间"""
-    def to_down(self,duration=5000):
+
+    def to_down(self, duration=5000):
         """向下滑动,传参持续时间"""
         x, y = self.window_size()
         end_x = start_x = 0.5 * x
@@ -101,7 +105,8 @@ class BasePage():
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
     """向右滑动,传参持续时间"""
-    def to_right(self,duration=5000):
+
+    def to_right(self, duration=5000):
         """向右滑动,传参持续时间"""
         x, y = self.window_size()
         start_x = 0.2 * x
@@ -110,7 +115,8 @@ class BasePage():
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
     """向左滑动,传参持续时间"""
-    def to_left(self,duration=5000):
+
+    def to_left(self, duration=5000):
         """向左滑动,传参持续时间"""
         x, y = self.window_size()
         start_x = 0.9 * x
@@ -129,3 +135,17 @@ class BasePage():
         for i in elements:
             ele.append(i)
         return ele[no - 1].text
+
+
+"""调试方法"""
+# from time import sleep
+#
+# buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
+# a = BasePage(driver())
+# cart_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
+# ###【分类】定位器
+# sort_locator = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("cn.missfresh.application:id/classifyTab")')
+# ###【购物车】定位器
+# a.click(sort_locator)
+# sleep(10)
+# a.choose(buy_locator, [1, 2, 3, 4])
