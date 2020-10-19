@@ -27,6 +27,9 @@ class OrderFillPage(BasePage):
     """我的"""
     mine_tab_loc = (By.ID,"cn.missfresh.application:id/mineTab")
 
+    """结算页面title订单填写"""
+    order_fill_title_loc = (By.ID,"cn.missfresh.application:id/tv_location")
+
 
 
 
