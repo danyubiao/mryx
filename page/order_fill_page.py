@@ -33,6 +33,9 @@ class OrderFillPage(BasePage):
     """返回购物车列表"""
     go_back_shopping_cart_loc = (By.ID, "cn.missfresh.application:id/tv_back")
 
+    """选择地址后地址编辑"""
+    address_detail_loc = (By.ID, "cn.missfresh.application:id/tv_address_detail")
+
 
 
 

@@ -44,3 +44,6 @@ class ShoppingCartPage(BasePage):
 
     """关闭新人专享页"""
     close_btn_new_loc = (By.ID, "cn.missfresh.application:id/close_btn")
+
+    """我的标签"""
+    mine_tab_loc = (By.ID, "cn.missfresh.application:id/mineTab")
