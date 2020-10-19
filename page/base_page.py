@@ -52,11 +52,11 @@ class BasePage():
     def clear(self, locator):
         """清除输入框"""
         self.find_element(*locator).clear()
-        
+
     # 滚动
     def scroll(self, start_element, end_element):
         self.driver.scroll(start_element, end_element)
-        
+
     """封装添加商品的方法"""
 
     def choose(self, no=None):

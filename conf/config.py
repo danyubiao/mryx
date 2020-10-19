@@ -1,15 +1,18 @@
-# @Time : 2020/10/17 20:42
-# @Author : 30037
-# @Email : 960364395@qq.com
+# -*- coding: utf-8 -*-
+# @Time : 2020/10/17 9:49
+# @Author : lmlxixixi
+# @Email : 2865874313@qq.com
 # @File : config.py
-# @Project : missfresh
+# @Project : mryx
 
-desired_capabilities = {
+# 连接设备的信息
+desired_capabilites = {
     'platformName': 'Android',
     'deviceName': '127.0.0.1:62001',
-    'platformVersion': '5.1.1',
-    'appPackage': 'cn.missfresh.application',
-    'appActivity': 'cn.missfresh.module.base.main.view.SplashActivity',
+    'platformVersion': '7.1.2',
+    'automationName': 'UiAutomator1',
     'noReset': True,
-    'automationName': 'Uiautomator2'
+    'unicodeKeyboard':True
 }
+
+
