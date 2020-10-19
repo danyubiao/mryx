@@ -16,3 +16,9 @@ class BaseCase(unittest.TestCase):
 
     def setUp(self) -> None:
         self.driver = driver()
+
+
+    # def setUp(self) -> None:
+    #     self.driver = driver()
+
+

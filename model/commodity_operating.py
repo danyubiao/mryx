@@ -12,7 +12,7 @@ def commodity_operating(driver,name,*loc):
     for LinearLayout in LinearLayouts:
         try:
             if name in LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text"):
-                check = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name")
+                check = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/iv_product_check")
                 add = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/iv_product_add")
                 subtract = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/iv_product_sub")
                 price = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/pstv_left_price")
@@ -46,10 +46,13 @@ def count_price(driver,*loc):
     RecycleView = driver.find_element(loc)
     LinearLayouts = RecycleView.find_elements(By.CLASS_NAME, "android.widget.LinearLayout")
     sum = 0
+    goods_name = []
     for LinearLayout in LinearLayouts[2:]:
         try:
             price = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/pstv_left_price").get_attribute("text")
+            good_name = LinearLayout.find_element(By.ID, "cn.missfresh.application:id/tv_product_name").get_attribute("text")
+            goods_name.append(good_name)
             sum = sum + float(price)
-            return sum
+            return sum,goods_name
         except Exception:
             pass

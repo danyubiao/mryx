@@ -10,13 +10,6 @@ from page.mys_set_page import MysSetPage
 from model.driver import driver
 from page.mys_page import MysPage
 from page.activity_message_page import ActivityMessagePage
-from page.mys_customer_service_page import MysCustomerServicePage
-from page.mys_shipping_address_new_add_shopping_address_page import MysShippingAddressNewAddShippingAddressPage
-from page.mys_shipping_address_page import MysShippingAddressPage
-from time import sleep
-from page.address_page import AddressPage
-import unittest
-from appium.webdriver.common.mobileby import MobileBy as By
 from time import sleep
 
 class TestActivityNews(BaseCase):

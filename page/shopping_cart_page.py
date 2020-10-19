@@ -33,11 +33,29 @@ class ShoppingCartPage(BasePage):
     """全部价格"""
     all_price_loc = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
 
-    """全部价格"""
-    checkout_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
+    """去结算"""
+    check_out_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
 
     """可用优惠券"""
     available_coupons_loc = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/coupon_count\"]')
 
     """去凑单"""
     go_coudan_loc = (By.XPATH,'//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_coupon\"]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]')
+
+    """关闭新人专享页"""
+    close_btn_new_loc = (By.ID, "cn.missfresh.application:id/close_btn")
+
+    """我的标签"""
+    mine_tab_loc = (By.ID, "cn.missfresh.application:id/mineTab")
+
+    """购物车加入的商品的名称"""
+    milk_name_loc = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.TextView[1]')
+
+    """购物车加入的商品增加个数"""
+    add_shopping_loc = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.ImageView[5]')
+
+    """购物车加入的商品减少个数"""
+    sub_shopping_loc = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.ImageView[4]')
+
+    """购物车加入的商品个数"""
+    count_shopping_loc = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText')

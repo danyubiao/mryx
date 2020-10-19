@@ -4,8 +4,6 @@
 # @Email : xgtlz@gmail.com
 # @File : base_page.py
 # @Project : App_autotest
-from model.driver import driver
-from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
 from selenium.webdriver.remote.webelement import WebElement
 from model.driver import driver
@@ -48,8 +46,10 @@ class BasePage():
 
     """获取内容"""
 
-    def text(self, locator, element=None):
-        self.find_element(locator, element).text()
+    def text(self,locator,element=None):
+        text = self.find_element(locator,element).text
+        return text
+
 
     """清除输入框"""
 
