@@ -31,9 +31,6 @@ class SousuoPage(BasePage):
     def sousuo_kuang(self):
         self.driver.find_element(*self.sousuokuang_location).click()
 
-    def sousuo_shuru_dianji(self):
-        self.driver.find_element(*self.sousu_location).click()
-
     def sousuo_shuru(self,text):
         """搜索框输入操作"""
         self.driver.find_element(*self.sousu_location).send_keys(text)
