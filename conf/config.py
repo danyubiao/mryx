@@ -4,6 +4,7 @@
 # @Email : 2865874313@qq.com
 # @File : config.py
 # @Project : mryx
+import os
 
 # 连接设备的信息
 desired_capabilites = {
@@ -14,5 +15,6 @@ desired_capabilites = {
     'noReset': True,
     'unicodeKeyboard':True
 }
-
-
+base_path = os.path.dirname(os.path.abspath(__file__)).split('conf')[0]
+case_path = os.path.join(base_path,'testcase')
+report_path = os.path.join(base_path,'report')
