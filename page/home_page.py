@@ -23,10 +23,16 @@ class HomePage(BasePage):
     city_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_select_support_city\"]')
     beijing_locator = (By.XPATH,'//android.widget.TextView[@text=\"北京市\"]')
     return_locator = (By.XPATH,'//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/ll_title_bar_left_button\"]')
+
     """ID分类标签"""
     classify_tab_loc = (By.ID,"cn.missfresh.application:id/classifyTab")
+
     """ID购物车标签"""
     cart_tab_loc = (By.ID,"cn.missfresh.application:id/cartTab")
+
+    """不切换城市"""
+    iv_no_choose_loc = (By.ID,"cn.missfresh.application:id/iv_no_choose")
+
 
     """封装进入【主页】元素的定位器"""
     ###【分类】定位器
