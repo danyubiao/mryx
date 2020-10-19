@@ -10,5 +10,5 @@ from appium.webdriver.common.mobileby import By
 """商品详情页"""
 class GoodDetailPage(BasePage):
 
-    #购物车
+    #购物车车标
     car_locator = (By.XPATH,'//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/fl_cart_layout\"]')

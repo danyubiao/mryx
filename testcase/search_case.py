@@ -21,4 +21,5 @@ class SearchCase(BaseCase):
         sleep(1)
         #点击热门搜索商品
         sp = SearchPage(self.driver)
-        sp.click(sp.hot_search_locator)
+        sp.tap(sp.hot_search_locator)
+

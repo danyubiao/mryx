@@ -10,4 +10,5 @@ from selenium.webdriver.common.by import By
 """搜索界面"""
 class SearchPage(BasePage):
 
-    hot_search_locator = (By.XPATH,'//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[7]')
+    #热门搜索的定位
+    hot_search_locator = [(70,420)]

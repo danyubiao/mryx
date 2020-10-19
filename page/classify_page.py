@@ -9,10 +9,10 @@ from page.base_page import BasePage
 
 """我的页面"""
 class ClassifyPage(BasePage):
-  
-    sort_by_price_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
-     # = (By.XPATH,'//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]')
 
+    sort_by_price_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
+    sort_by_price_locator1 = (By.XPATH, '//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/price_layout\"]')
+    #搜索框
     search_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search_text\"]')
     add_car_locator = (By.XPATH,'//android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]')
     fruit_locator = (By.XPATH,'//android.widget.TextView[@text=\"时令水果\"]')
