@@ -30,6 +30,8 @@ class MysPage(BasePage):
     order_shipping_locator = (By.ID, "cn.missfresh.application:id/btn_mine_shipping")# 订单配送中的定位
     # 登录用户名定位
     login_name_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_nickname\"]")
+    # 收益定位
+    income_withdrawal_locator = (By.XPATH,"//android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ScrollView[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]")
 
     def click_loging_or_registered(self):
         """点击'登录或注册'按钮"""
@@ -58,3 +60,6 @@ class MysPage(BasePage):
     def text_login_name(self):
         """获取登录名文本"""
         self.text(self.login_name_locator)
+    def click_income_withdrawal(self):
+        """点击‘收益’按钮"""
+        self.click(self.income_withdrawal_locator)

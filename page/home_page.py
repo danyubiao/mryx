@@ -35,13 +35,21 @@ class HomePage(BasePage):
     cart_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
     ###【我的】定位器
     mine_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/mineTab\"]")
+    mine_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("我的")')
     # 吃什么页面的定位器
     eat_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("吃什么")')
     # 立即登录按钮定位
     quest_login_locator = (By.ID,"cn.missfresh.application:id/tv_login")
+
+
     def click_mine(self):
         """点击'我的'按钮"""
         self.click(self.mine_locator)
+
+    def click_mine_test(self):
+        """根据文本点击我的"""
+        self.click(self.mine_loc)
+
 
     # 点击吃什么
     def eat_click(self):

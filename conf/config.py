@@ -15,6 +15,7 @@ desired_capabilites = {
     'unicodeKeyboard':True
 }
 
+
 MY_FULL_PATH = os.path.abspath(__file__) # 当前绝对文件地址
 MRYX_PATH = MY_FULL_PATH.strip("confgin.py").strip("conf\\") # 工程地址
 REPORT_PATH = os.path.join(MRYX_PATH,"report") # 报告地址
