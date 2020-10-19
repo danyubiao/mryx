@@ -5,12 +5,12 @@
 # @File : test_dianzan.py
 # @Project : mryx
 
-
-
+import unittest
 from page.eat_page import EatPage
 from page.home_page import HomePage
 from testcase.test_base import TestBase
 from page.eat_xiangqing_page import EatXiangQingPage
+
 
 class TestDianZan(TestBase):
     def setUp(self) -> None:
@@ -26,3 +26,7 @@ class TestDianZan(TestBase):
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
         xq.dianzan_click()  #点击点赞
+
+if __name__ == '__main__':
+    unittest.main()
+

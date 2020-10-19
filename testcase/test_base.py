@@ -5,12 +5,14 @@
 # @File : test_base.py
 # @Project : mryx
 
+"""封装测试基类"""
 import unittest
 from model.driver import app_mrsx
 
 class TestBase(unittest.TestCase):
 
     def setUp(self) -> None:
+        # 进入每日优鲜
         self.driver = app_mrsx()
 
 

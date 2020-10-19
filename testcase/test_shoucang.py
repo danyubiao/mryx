@@ -4,6 +4,7 @@
 # @Email : 2865874313@qq.com
 # @File : test_shoucang.py
 # @Project : mryx
+import unittest
 
 from page.eat_page import EatPage
 from page.home_page import HomePage
@@ -24,3 +25,6 @@ class TestShouCang(TestBase):
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
         xq.shoucang_click()   #点击收藏
+
+if __name__ == '__main__':
+    unittest.main()
