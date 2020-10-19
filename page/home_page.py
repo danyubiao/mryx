@@ -14,6 +14,8 @@ from selenium.common.exceptions import TimeoutException
 from appium.webdriver.common.touch_action import TouchAction
 from model.driver import driver
 from page.base_page import BasePage
+
+
 class HomePage(BasePage):
     # 封装定位器,名称加定位器加定位元素
 
@@ -24,8 +26,8 @@ class HomePage(BasePage):
     sousuo= (By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
 
     def get_home(self):
-        """获取分类按钮文本信息"""
-        element=self.driver.find_element(self.home_location)
+        """获取分类断言按钮文本信息"""
+        element=self.driver.find_element(*self.home_location)
         text =element.text.strip()
         return  text
 

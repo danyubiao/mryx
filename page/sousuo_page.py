@@ -16,10 +16,23 @@ from model.driver import driver
 from page.base_page import BasePage
 class SousuoPage(BasePage):
 
-    #点击后的搜索封装定位元素
-    sousu_location=(By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
+    #点击首页搜索框
+    sousuokuang_location=(By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn."
+                                   "missfresh.application:id/search_layout\"]")
+    #点击后的第二个搜索框封装定位元素
+    sousu_location=(By.XPATH,"//android.widget.EditText[@resource-id="
+                             "\"cn.missfresh.application:id/search_view\"]")
     #点击搜索按钮
-    sousuo_anniu_location=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_search\"]')
+    sousuo_anniu_location=(By.XPATH,'//android.widget.TextView[@resource-id='
+                                    '\"cn.missfresh.application:id/tv_search\"]')
+
+
+
+    def sousuo_kuang(self):
+        self.driver.find_element(*self.sousuokuang_location).click()
+
+    def sousuo_shuru_dianji(self):
+        self.driver.find_element(*self.sousu_location).click()
 
     def sousuo_shuru(self,text):
         """搜索框输入操作"""
@@ -28,6 +41,7 @@ class SousuoPage(BasePage):
     def sousuo_anniu_dianji(self):
         """点击搜索按钮"""
         self.driver.find_element(*self.sousuo_anniu_location).click()
+
 
 
 

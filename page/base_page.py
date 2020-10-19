@@ -9,8 +9,9 @@ from model.driver import driver
 
 
 class BasePage():
-    def __init__(self, driver=driver()):
+    def __init__(self, driver):
         self.driver = driver  # 初始化
+
 
 
 

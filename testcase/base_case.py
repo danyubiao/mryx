@@ -10,7 +10,9 @@ from model.driver import driver
 
 
 class BaseCase(unittest.TestCase):
-    driver = driver()
+
+    def setUp(self) -> None:
+        self.driver = driver()
 
 
 if __name__ == '__main__':
