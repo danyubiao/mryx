@@ -14,7 +14,5 @@ class BaseCase(unittest.TestCase):
     # driver.implicitly_wait(30)
     """用例的基类"""
 
-
     def setUp(self) -> None:
         self.driver = driver()
-
