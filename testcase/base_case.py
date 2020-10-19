@@ -7,12 +7,6 @@
 import unittest
 from model.driver import driver
 from page.base_page import BasePage
-from page.home_page import HomePage
-import unittest
-from page.base_page import BasePage
-from page.home_page import HomePage
-from time import sleep
-from model.driver import open_mryx
 
 
 class BaseCase(unittest.TestCase):
@@ -20,4 +14,7 @@ class BaseCase(unittest.TestCase):
     driver.implicitly_wait(30)
     """用例的基类"""
 
+
+    def setUp(self) -> None:
+        self.driver = driver()
 

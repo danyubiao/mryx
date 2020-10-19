@@ -1,9 +1,9 @@
-# @Time : 2020/10/16 17:27
-# @Author : 30037
-# @Email : 960364395@qq.com
+# -*- coding: utf-8 -*-
+# @Time : 2020/10/15 22:47
+# @Author : 李洪侨
+# @Email : 1141511816@qq.com
 # @File : driver.py
-# @Project : missfresh
-
+# @Project : App_autotest
 from appium import webdriver
 from time import sleep
 from selenium.webdriver.support.wait import WebDriverWait
@@ -21,10 +21,10 @@ def open_mryx():
     return driver
 
 def driver():
-    descried_capabilities = {
+    desired_capabilities = {
         "platformName": "Android",  ###平台
         "deviceName": "127.0.0.1:62001",  ###设备信息
-        "platformVersion": "7.1.2",  ###版本号
+        "platformVersion": "5.1.1",  ###版本号
         "appPackage": "cn.missfresh.application",  ###包名
         "appActivity": "cn.missfresh.module.base.main.view.SplashActivity",  ###Activity
         'automationName': 'UiAutomator1',
