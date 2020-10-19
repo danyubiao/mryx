@@ -9,6 +9,9 @@ from appium.webdriver.common.mobileby import MobileBy as By
 
 class Mine():
     """封装【我的】中的元素"""
+    
+    """收货地址"""
+    shipping_address_loc = (By.XPATH,"//android.widget.TextView[@text=\"收货地址\"]")
     """登录注册定位器"""
     logon_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_nickname\"]")
     """用户名定位器"""
