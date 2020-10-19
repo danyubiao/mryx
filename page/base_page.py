@@ -7,35 +7,51 @@
 from model.driver import driver
 from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
+from model.driver import webdriver_remote
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class BasePage():
-    """所有页面的基类"""
-
-    def __init__(self, driver):
+    """页面的基页面"""
+    def __init__(self,driver):
+        """初始属性driver"""
         self.driver = driver
 
-    """封装寻找元素的方法"""
-
-    def find_element(self, locator, elements=None):
-        if elements and isinstance(elements, WebElement):
-            return elements.find_element(*locator)
+    """缩写find_element"""
+    def find_element(self, locator,element=None):
+        """封装查找单个元素"""
+        if element and isinstance(element, WebElement):    #如果元素为真并且是WebElement
+            return element.find_element(*locator)
         return self.driver.find_element(*locator)
 
     def find_elements(self, locator, elements=None):
+        """封装查找元素列表"""
         if elements and isinstance(elements, WebElement):
-            return elements.find_elements(*locator)
+            return elements.find_element(*locator)
         return self.driver.find_elements(*locator)
 
-    """封装点击的方法"""
+    # 输入内容
+    def send_keys(self,locator,text,element=None):
+        """
+        :param element: 元素对象
+        :param text: 输入的内容
+        :return:
+        """
+        return self.find_element(locator,element).send_keys(text)
 
-    def click(self, locator, elements=None):
-        self.find_element(locator, elements).click()
+    """点击"""
+    def click(self,locator,element=None):
+        self.find_element(locator,element).click()
 
-    """封装输入的方法"""
+    """获取内容"""
+    def text(self,locator,element=None):
+        self.find_element(locator,element).text()
 
-    def send_keys(self, locator, text, elements=None):
-        return self.driver.find_element(locator, elements).send_keys(text)
+
+    """清除输入框"""
+    def clear(self, locator):
+        """清除输入框"""
+        self.find_element(*locator).clear()
 
     """封装添加商品的方法"""
 
