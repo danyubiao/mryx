@@ -24,7 +24,11 @@ class TestShouCang(TestBase):
         hp.eat_click()  # 点击吃什么
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
+        af=int(xq.shoucang_num())   #获取收藏前的收藏次数
         xq.shoucang_click()   #点击收藏
+        # 断言
+        bf=int(xq.shoucang_num())   #获取收藏后的收藏次数
+        self.assertEqual(af+1,bf)   #断言点击收藏后收藏次数+1
 
 if __name__ == '__main__':
     unittest.main()

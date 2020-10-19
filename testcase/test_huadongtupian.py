@@ -27,9 +27,11 @@ class TestHuaDongTuPian(TestBase):
         hp.eat_click()  # 点击吃什么
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
+        af=xq.tupian2diandian_size()   #获取滑动前图片2点点的大小
         self.driver.swipe(950,550,150,550) #图片往左滑动
-
-
+        bf=xq.tupian2diandian_size()   #获取滑动后图片2点点的大小
+        self.assertGreater(bf,af)   #断言滑动后的size大于滑动前的
+        
 if __name__ == '__main__':
     unittest.main()
 

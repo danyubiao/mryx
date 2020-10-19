@@ -51,3 +51,18 @@ class HomePage(BasePage):
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)
+    home_location= (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]")
+
+    # 搜索框定位
+    sousuo= (By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
+
+    def get_home(self):
+        """获取分类断言按钮文本信息"""
+        element=self.driver.find_element(*self.home_location)
+        text =element.text.strip()
+        return  text
+
+# 点击搜索框
+    def click_sousu(self):
+        """点击首页搜索框"""
+        self.driver.find_element(*self.sousuo).click()

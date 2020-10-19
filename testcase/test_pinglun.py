@@ -13,28 +13,29 @@ from page.eat_xiangqing_page import EatXiangQingPage
 from page.eat_xiangqing_pinglun_page import XiangQingPinglunPage
 
 class TestPingLun(TestBase):
-
+    username='小鲜_XB2Y0V'
     text = '你真棒！'
 
     def setUp(self) -> None:
         TestBase.setUp(self)  # 打开app
 
-    def test_pinglun(self):
 
+    def test_pinglun(self):
         """评论输入内容成功
         MRYX_ST_eat_006"""
 
-
-        hp = HomePage(self.driver)  #实例化主页
-        ep = EatPage(self.driver)  # 实例化吃什么页面
-        hp.eat_click()  # 点击吃什么
-        ep.first_click()  # 点击第一个菜谱
-        xq=EatXiangQingPage(self.driver)  #实例化详情页面
-        xq.pinglun_click()    #点击评论框
+        self.hp = HomePage(self.driver)
+        self.hp.eat_click()  # 点击吃什么
+        self.ep = EatPage(self.driver)  # 实例化吃什么页面
+        self.ep.first_click()  # 点击第一个菜谱
+        self.xq = EatXiangQingPage(self.driver)  # 实例化详情页面
+        self.xq.pinglun_click()  #点击评论框
         pl=XiangQingPinglunPage(self.driver)   #实例化评论页面
-        pl.pinglun_send(self.text)   #输入评论内容
-        pl.fasong_click()   #点击发送评论
-
+        pl.pinglun_send('你真棒呀！')   #输入评论
+        pl.fasong_click()   #点击发送
+        # 断言
+        text=self.xq.pinglunneirong_text()  #获取第一条评论的用户名
+        self.assertEqual(self.username,'小鲜_XB2Y0V')   #断言第一条评论是我发的
 
 
 if __name__ == '__main__':

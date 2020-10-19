@@ -49,3 +49,12 @@ class SousuoPage(BasePage):
         ele = self.driver.find_element(*self.zonghe_duanyan_locator)
         text = ele.text
         return text
+class FenLei(BasePage):
+#封装定位器
+    fenlei_location =(By.XPATH,"//android.widget.TextView[@resource-id=" 
+                          "\"cn.missfresh.application:id/classifyTab\"]")
+
+     #点击分类跳转
+    def click_dianji(self):
+        self.driver.find_element(*self.fenlei_location).click()
+
