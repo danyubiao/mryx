@@ -7,19 +7,27 @@
 """每日优鲜的'我的'主界面"""
 from page.base_page import BasePage
 from appium.webdriver.common.mobileby import MobileBy as By
-from model.driver import webdriver_remote
+from model.driver import driver
 
 class MysPage(BasePage):
-
-    loging_or_registered_locator = (By.ID, "cn.missfresh.application:id/tv_nickname") # 【登录或注册】元素定位
-    mys_news_locator = (By.ID, "cn.missfresh.application:id/msg_view") # 【消息铃铛图标】定位
-    shipping_address_locator = (By.LINK_TEXT, "收货地址") # 收货地址的大框框相对布局定位
-    recommend_polite_locator = (By.LINK_TEXT,"推荐有礼") # 推荐有礼的大框框相对布局定位
-    customer_service_locator = (By.LINK_TEXT, "客服和帮助")# 客服和帮助的大框框相对布局定位
-    help_get_free_locator = (By.LINK_TEXT, "助力免费拿")  # 助力免费拿的大框框相对布局定位
-    set_locator = (By.LINK_TEXT, "设置")# 设置的大框框相对布局定位
-    points_mall_locator = (By.LINK_TEXT, "积分商城")# 积分商城的大框框相对布局定位
-    order_shipping_locator = (By.LINK_TEXT, "配送中")# 订单配送中的定位
+    # 【登录或注册】元素定位
+    loging_or_registered_locator = (By.ID, "cn.missfresh.application:id/tv_nickname")
+    # 【消息铃铛图标】定位
+    mys_news_locator = (By.ID, "cn.missfresh.application:id/msg_view")
+    # 收货地址的大框框相对布局定位
+    shipping_address_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[7]/android.widget.RelativeLayout[1]")
+    # 推荐有礼的大框框相对布局定位
+    recommend_polite_locator = (By.XPATH,"//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[4]/android.widget.RelativeLayout[1]")
+    # 客服和帮助的大框框相对布局定位
+    customer_service_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[8]/android.widget.RelativeLayout[1]")
+    # 助力免费的大框框相对布局定位
+    help_get_free_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[6]/android.widget.RelativeLayout[1]")
+    # 设置的大框框相对布局定位
+    set_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[9]/android.widget.RelativeLayout[1]")
+    # 积分商城的大框框相对布局定位
+    points_mall_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[5]/android.widget.RelativeLayout[1]")
+    # 订单配送中的定位
+    order_shipping_locator = (By.ID, "cn.missfresh.application:id/btn_mine_shipping")# 订单配送中的定位
 
     def click_loging_or_registered(self):
         """点击'登录或注册'按钮"""
