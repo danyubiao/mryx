@@ -37,7 +37,8 @@ class HomePage(BasePage):
     mine_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/mineTab\"]")
     # 吃什么页面的定位器
     eat_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("吃什么")')
-
+    # 立即登录按钮定位
+    quest_login_locator = (By.ID,"cn.missfresh.application:id/tv_login")
     def click_mine(self):
         """点击'我的'按钮"""
         self.click(self.mine_locator)
@@ -60,3 +61,8 @@ class HomePage(BasePage):
     def click_sousu(self):
         """点击首页搜索框"""
         self.driver.find_element(*self.sousuo).click()
+
+    def text_quest_login(self):
+        """获取立即登录按钮的文本信息"""
+        text = self.text(self.quest_login_locator)
+        return text
