@@ -7,7 +7,7 @@
 """每日优鲜的'我的'主界面"""
 from page.base_page import BasePage
 from appium.webdriver.common.mobileby import MobileBy as By
-from model.driver import driver
+
 
 class MysPage(BasePage):
     # 【登录或注册】元素定位
