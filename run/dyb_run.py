@@ -11,7 +11,9 @@
     test_add_shopping_address.py 添加收货地址测试
     test_customer_service.py 客服与服务的测试
     test_points_mall.py 积分商城测试
-    mys_income_withdrawal_page.py 收益不足一元提现
+    mys_income_withdrawal_page.py 收益不足一元提现  ^
+    test_good_ticket.py 优惠券测试 ^
+    test_help_get_free.py 助力免费测试
     """
 from conf.config import TESTCASE_PATH,REPORT_PATH
 import unittest
