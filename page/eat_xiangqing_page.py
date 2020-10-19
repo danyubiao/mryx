@@ -70,13 +70,15 @@ class EatXiangQingPage(BasePage):
     def dianzan_num(self):
         # 获取点赞次数
         text=self.text(self.dianzan_num_loc)
-        if text=='收藏':
+        if text=='点赞':
             text=0
         return text
 
     def shoucang_num(self):
         # 获取收藏次数
         text = self.text(self.shoucang_num_loc)
+        if text=='收藏':
+            text=0
         return text
     def tupian2diandian_size(self):
         # 获取图片2点点的大小
