@@ -35,9 +35,12 @@ class HomePage(BasePage):
     cart_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
     ###【我的】定位器
     mine_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/mineTab\"]")
-    # 吃什么页面的定位器
+    # 【吃什么】页面的定位器
     eat_loc = (By.ANDROID_UIAUTOMATOR, 'new UiSelector().text("吃什么")')
 
+    home_location = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]")
+    # 搜索框定位
+    sousuo = (By.XPATH, "//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
     def click_mine(self):
         """点击'我的'按钮"""
         self.click(self.mine_locator)
@@ -45,10 +48,7 @@ class HomePage(BasePage):
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)
-    home_location= (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]")
 
-    # 搜索框定位
-    sousuo= (By.XPATH,"//android.widget.FrameLayout[@resource-id=\"cn.missfresh.application:id/search_layout\"]")
 
     def get_home(self):
         """获取分类断言按钮文本信息"""

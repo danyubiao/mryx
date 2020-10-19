@@ -5,7 +5,7 @@
 # @Project : app测试
 """搜索"""
 
-import self
+
 from appium import webdriver
 from time import sleep
 from appium.webdriver.common.mobileby import MobileBy as By
@@ -14,6 +14,7 @@ from selenium.common.exceptions import TimeoutException
 from appium.webdriver.common.touch_action import TouchAction
 from model.driver import driver
 from page.base_page import BasePage
+
 class SousuoPage(BasePage):
 
     #点击首页搜索框

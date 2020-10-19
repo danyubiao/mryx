@@ -17,12 +17,7 @@ class FindPage(BasePage):
     sousuo_cilck_loc=(By.XPATH,'//android.widget.TextView[@resource-id=\"cn.'
                                'missfresh.application:id/tv_search\"]')
     # 搜索内容的定位器
-    neirong_loc=(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.'
-                          'LinearLayout/android.widget.FrameLayout/android.widget.'
-                          'LinearLayout/android.widget.FrameLayout/android.widget.'
-                          'FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[4]'
-                          '/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]'
-                          '/android.widget.RelativeLayout/android.widget.TextView[1]')
+    neirong_loc=(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[4]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.widget.TextView[1]')
 
     def find_send(self, text):
         # 输入文本
@@ -34,6 +29,7 @@ class FindPage(BasePage):
         self.click(self.sousuo_cilck_loc)
 
     def nerong_text(self):
+        # 获取搜索出来内容的文本
         text=self.text(self.neirong_loc)
         return text
 
