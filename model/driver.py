@@ -5,9 +5,6 @@
 # @File : driver.py
 # @Project : App_autotest
 from appium import webdriver
-from time import sleep
-from selenium.webdriver.support.wait import WebDriverWait
-from appium.webdriver.common.touch_action import TouchAction
 from conf.config import desired_capabilities
 
 from appium.webdriver.common.mobileby import MobileBy as By
