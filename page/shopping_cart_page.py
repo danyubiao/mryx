@@ -33,11 +33,17 @@ class ShoppingCartPage(BasePage):
     """全部价格"""
     all_price_loc = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_price\"]")
 
-    """全部价格"""
-    checkout_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
+    """去结算"""
+    check_out_loc = (By.ANDROID_UIAUTOMATOR,'new UiSelector().textStartsWith("去结算")')
 
     """可用优惠券"""
     available_coupons_loc = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/coupon_count\"]')
 
     """去凑单"""
     go_coudan_loc = (By.XPATH,'//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_coupon\"]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[1]')
+
+    """关闭新人专享页"""
+    close_btn_new_loc = (By.ID, "cn.missfresh.application:id/close_btn")
+
+    """我的标签"""
+    mine_tab_loc = (By.ID, "cn.missfresh.application:id/mineTab")

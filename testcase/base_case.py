@@ -15,6 +15,6 @@ class BaseCase(unittest.TestCase):
     """用例的基类"""
 
 
-    def setUp(self) -> None:
-        self.driver = driver()
+    # def setUp(self) -> None:
+    #     self.driver = driver()
 
