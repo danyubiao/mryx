@@ -25,7 +25,12 @@ class TestDianZan(TestBase):
         hp.eat_click()  # 点击吃什么
         ep.first_click()  # 点击第一个菜谱
         xq=EatXiangQingPage(self.driver)  #实例化详情页面
+        af=int(xq.dianzan_num())  #获取点赞前的点赞次数
         xq.dianzan_click()  #点击点赞
+        # 断言
+        bf=int(xq.dianzan_num())   #获取点赞后的点赞次数
+        self.assertEqual(af+1,bf)   #断言点赞数+1
+
 
 if __name__ == '__main__':
     unittest.main()
