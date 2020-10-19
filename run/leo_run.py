@@ -14,7 +14,7 @@ import unittest
 filname = "{}{}".format("Ecshop_report",time.strftime("%Y%m%d%H%M"))
 testsuite = unittest.defaultTestLoader.discover(config.TESTCASE_PATH, "test_shopping_cart.py")
 BeautifulReport(testsuite).report(
-    description='添加会员和会员列表操作',
+    description='每日优鲜购物车',
     report_dir=config.REPORT_PATH,
     filename = filname
 )
