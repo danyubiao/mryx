@@ -18,7 +18,15 @@ from page.base_page import BasePage
 
 class GouWu(BasePage):
   #定位购物车
-    gouwuche_location =(By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartTab\"]")
+    gouwuche_location =(By.ID,"cn.missfresh.application:id/cartTab")
+  #定位断言元素
+    duanyan_gouwu =(By.ID,"cn.missfresh.application:id/tv_delete")
    #点击购物车
     def click_dianji(self):
         self.driver.find_element(*self.gouwuche_location).click()
+
+    def duanyan_gw(self):
+        text =self.text(self.duanyan_gouwu)
+        return text
+
+

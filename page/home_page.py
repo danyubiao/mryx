@@ -66,6 +66,7 @@ class HomePage(BasePage):
     # 点击吃什么
     def eat_click(self):
         self.click(self.eat_loc)
+    home_location= (By.ID,"cn.missfresh.application:id/classifyTab")
 
 
     def get_home(self):

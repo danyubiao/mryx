@@ -20,7 +20,9 @@ class FenLei1(BaseCase):
     def test_fenlei(self):
         lp = FenLei(self.driver)
         lp.click_dianji()
-        fl = FenLei1
+        lp.duanyan_fenlei()
+        text =lp.duanyan_fenlei()
+        self.assertEqual(text,"全部")
 if __name__ == '__main__':
     unittest.main()
 

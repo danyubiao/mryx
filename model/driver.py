@@ -25,7 +25,9 @@ def driver():
         "noReset": True,
         "unicodeKeyboard": True
     }
-    driver = webdriver.Remote("http://192.168.1.164:4723/wd/hub", desired_capabilities)
+
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+
     driver.implicitly_wait(30)
     return driver
 

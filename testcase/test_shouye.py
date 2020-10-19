@@ -18,6 +18,6 @@ class Visit_The_Home(unittest.TestCase):
         lp= HomePage(self.driver)
         sleep(4)
         text = lp.get_home()
-        self.assertEqual(text,"分类")
+        self.assertEqual(text,"分类")#断言
 if __name__ == '__main__':
     unittest.main()
