@@ -6,15 +6,11 @@
 # @Project : mryx
 from testcase.base_case import BaseCase
 from page.home_page import HomePage
-from page.mys_set_page import MysSetPage
-from model.driver import driver
 from page.mys_page import MysPage
 from page.mys_shipping_address_new_add_shopping_address_page import MysShippingAddressNewAddShippingAddressPage
 from page.mys_shipping_address_page import MysShippingAddressPage
-from time import sleep
 from page.address_page import AddressPage
 import unittest
-from appium.webdriver.common.mobileby import MobileBy as By
 from time import sleep
 
 class TestAddShoppingAddress(BaseCase):
