@@ -17,6 +17,13 @@ class AddGwcPage(BasePage):
     add_gwc_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")
     """断言添加成功定位器"""
     dy_addgwc_locator = (By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/cartNumTv\"]")
+    """点击购物车定位器"""
+    gouwuche_locator = (By.ID, "cn.missfresh.application:id/cartTab")
+    """点击删除定位器"""
+    delete_goods_locator = (By.ID, "cn.missfresh.application:id/tv_delete")
+    """点击确定删除定位器"""
+    sure_delete_locator = (By.ID, "cn.missfresh.application:id/tv_ensure")
+
 
     def going_fenlei(self):
         """封装进入分类页面方法"""
@@ -34,6 +41,16 @@ class AddGwcPage(BasePage):
         text = ele.text
         return text
 
-    def hd_screen(self):
-        """滑动屏幕"""
-        self.driver.swipe(400,850,400,820)
+    def gojing_gouwuche(self):
+        """封装点击购物车方法"""
+        self.driver.find_element(*self.gouwuche_locator).click()
+
+    def delete_goods(self):
+        """封装点击删除商品方法"""
+        self.driver.find_element(*self.delete_goods_locator).click()
+
+    def sure_delete(self):
+        """封装点击确定删除方法"""
+        self.driver.find_element(*self.sure_delete_locator).click()
+
+
