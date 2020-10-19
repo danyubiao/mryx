@@ -20,3 +20,10 @@ class BasePage():
     # 滚动
     def scroll(self, start_element, end_element):
         self.driver.scroll(start_element, end_element)
+
+    #触摸
+    def tap(self,position):
+        self.driver.tap(position)
+
+
+

@@ -5,9 +5,6 @@
 # @Project : missfresh
 
 from appium import webdriver
-from time import sleep
-from selenium.webdriver.support.wait import WebDriverWait
-from appium.webdriver.common.touch_action import TouchAction
 from conf.config import desired_capabilities
 
 def open_mryx():

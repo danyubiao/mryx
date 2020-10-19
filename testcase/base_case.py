@@ -10,6 +10,7 @@ from page.base_page import BasePage
 from page.home_page import HomePage
 from time import sleep
 from model.driver import open_mryx
+from page.choose_city_locator import ChooseCityPage
 
 
 class BaseCase(unittest.TestCase):
@@ -19,11 +20,12 @@ class BaseCase(unittest.TestCase):
         sleep(3)
         hp.click(hp.adress_locator)
         sleep(1)
-        hp.click(hp.city_locator)
+        ccp = ChooseCityPage(self.driver)
+        hp.click(ccp.city_locator)
         sleep(1)
-        hp.click(hp.beijing_locator)
+        hp.click(ccp.beijing_locator)
         sleep(1)
-        hp.click(hp.return_locator)
+        hp.click(ccp.return_locator)
         sleep(1)
         hp.click(hp.classify_locator)
         sleep(1)

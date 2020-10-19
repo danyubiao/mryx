@@ -9,8 +9,9 @@ from selenium.webdriver.common.by import By
 
 class HomePage(BasePage):
 
+    #分类的定位
     classify_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/classifyTab\"]')
+    #左上角地点的定位
     adress_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/address_tv\"]')
-    city_locator = (By.XPATH,'//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_select_support_city\"]')
-    beijing_locator = (By.XPATH,'//android.widget.TextView[@text=\"北京市\"]')
-    return_locator = (By.XPATH,'//android.widget.LinearLayout[@resource-id=\"cn.missfresh.application:id/ll_title_bar_left_button\"]')
+
+
