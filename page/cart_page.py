@@ -4,7 +4,60 @@
 # @Email : 1141511816@qq.com
 # @File : cart_page.py
 # @Project : App_autotest
+from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
-class CartPage():
+
+class CartPage(BasePage):
     """封装购物车中的元素"""
-    ###
+    """封装购物车中的定位器"""
+    assert_case001_locator = (
+        By.XPATH, "//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_location\"]")  ###第一条用例断言定位器
+    cart_price_locator = (By.ID, "cn.missfresh.application:id/pstv_left_price")  ###价格定位器
+    """在购物车减少商品数量"""
+
+    def decrease(self, no=None):
+        add_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【+】的定位器
+        elements = self.driver.find_elements(add_locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        if no and isinstance(no, list):
+            for i in no:
+                ele[i - 1].click()
+        elif no and isinstance(no, int):
+            ele[no - 1].click()
+        else:
+            print("你输入的数字不合法")
+
+    """在购物车增加商品数量"""
+
+    def crease(self, no=None):
+        add_locator = (By.ID, "cn.missfresh.application:id/iv_product_add")  ###【+】的定位器
+        elements = self.driver.find_elements(add_locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        if no and isinstance(no, list):
+            for i in no:
+                ele[i - 1].click()
+        elif no and isinstance(no, int):
+            ele[no - 1].click()
+        else:
+            print("你输入的数字不合法")
+
+    """计算购物车里商品的总价格"""
+
+    def cart_price(self, number=None):
+        cart_price_locator = (By.ID, "cn.missfresh.application:id/pstv_left_price")
+        elements = self.find_elements(cart_price_locator)
+        prices = 0
+        num = 0
+        for i in elements:
+            num = num + 1
+            prices = prices + float(i.text)
+            if num == number:
+                return prices
+            else:
+                pass
+        return prices

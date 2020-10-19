@@ -9,10 +9,14 @@ from selenium.webdriver.remote.webelement import WebElement
 from appium.webdriver.common.mobileby import MobileBy as By
 
 
+# from page.sort_page import SortPage
+# from page.home_page import HomePage
+
+
 class BasePage():
     """所有页面的基类"""
 
-    def __init__(self, driver=driver()):
+    def __init__(self, driver):
         self.driver = driver
 
     """封装寻找元素的方法"""
@@ -35,13 +39,12 @@ class BasePage():
     """封装输入的方法"""
 
     def send_keys(self, locator, text, elements=None):
-        return self.driver.find_element(locator, elements).send_keys(text)
+        return self.find_element(locator, elements).send_keys(text)
 
     """封装添加商品的方法"""
 
-    def choose(self, no=None):
-        buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
-        elements = self.driver.find_elements(buy_locator)
+    def choose(self, locator, no=None):
+        elements = self.find_elements(locator)
         ele = []
         for i in elements:
             ele.append(i)
@@ -52,5 +55,21 @@ class BasePage():
             ele[no - 1].click()
         else:
             print("你输入的数字不合法")
+
+    """获取元素文本内容"""
+
+    def get_text(self, locator):
+        return self.find_element(locator).text
+
+    """按照商品的顺序获取信息"""
+
+    def order_text(self, locator, no=None):
+        elements = self.find_elements(locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        return ele[no - 1].text
+
+
 
 
