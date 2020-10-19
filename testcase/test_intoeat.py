@@ -44,7 +44,7 @@ class TestInToEat(TestBase):
         # 断言
         text=self.find.nerong_text()   #获取搜索内容的文本
         self.assertIn('土豆排骨',text)    #断言内容包含土豆排骨
-        
+
 
 
     def test_caipu(self):
