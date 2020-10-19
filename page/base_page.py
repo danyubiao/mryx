@@ -42,9 +42,8 @@ class BasePage():
 
     """获取内容"""
     def text(self,locator,element=None):
-        text=self.find_element(locator,element).text
+        text = self.find_element(locator,element).text
         return text
-
 
 
     """清除输入框"""
