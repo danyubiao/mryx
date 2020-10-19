@@ -5,9 +5,9 @@
 # @File : mine_page.py
 # @Project : App_autotest
 from appium.webdriver.common.mobileby import MobileBy as By
+from page.base_page import BasePage
 
-
-class MinePage():
+class MinePage(BasePage):
     """封装【我的】中的元素"""
     
     """收货地址"""
