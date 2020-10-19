@@ -8,14 +8,19 @@ import unittest
 from testcase.base_case import BaseCase
 
 class PaixuTest(BaseCase):
-    def test_paixu(self):
+    def test_price(self):
         """MRYX_ST_classification_002"""
-        """排序测试"""
-        px = PaixuPage(self.driver)
-        # 进入分类页面
-        px.going_fenlei()
-        # 点击排序
-        px.click_paixu()
+        """价格排序测试"""
+        price = PaixuPage(self.driver)
+        price.going_fenlei()               # 进入分类页面
+        price.click_price()                # 点击价格排序
+
+    def test_sales(self):
+        """MRYX_ST_classification_002"""
+        """销量排序测试"""
+        sales = PaixuPage(self.driver)
+        sales.going_fenlei()                # 进入分类页面
+        sales.click_sales()                 # 点击销量排序
 
 if __name__ == '__main__':
     unittest.main()
