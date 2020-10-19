@@ -10,7 +10,10 @@ from page.base_page import BasePage
 
 
 class BaseCase(unittest.TestCase):
+    driver = driver()
+    driver.implicitly_wait(30)
     """用例的基类"""
+
 
     def setUp(self) -> None:
         self.driver = driver()
