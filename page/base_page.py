@@ -52,11 +52,11 @@ class BasePage():
     def clear(self, locator):
         """清除输入框"""
         self.find_element(*locator).clear()
-        
+
     # 滚动
     def scroll(self, start_element, end_element):
         self.driver.scroll(start_element, end_element)
-        
+
     """封装添加商品的方法"""
 
     def choose(self, no=None):
@@ -118,4 +118,14 @@ class BasePage():
         end_y = start_y = 0.5 * y
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
+    def get_text(self, locator):
+        return self.find_element(locator).text
 
+    """按照商品的顺序获取信息"""
+
+    def order_text(self, locator, no=None):
+        elements = self.find_elements(locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        return ele[no - 1].text
