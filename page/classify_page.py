@@ -29,6 +29,9 @@ class ClassifyPage(BasePage):
     """点击后搜索框搜索框"""
     search_view_loc = (By.XPATH,"//android.widget.EditText[@resource-id=\"cn.missfresh.application:id/search_view\"]")
 
+    """搜索"""
+    tv_search_loc = (By.ID, "cn.missfresh.application:id/tv_search")
+
     """搜索物品RecyclerView"""
     result_recycler_loc = (By.ID,"cn.missfresh.application:id/result_recycler")
 
