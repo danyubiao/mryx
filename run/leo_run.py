@@ -11,7 +11,7 @@ import unittest
 
 
 """运行测试用例并生成报告"""
-filname = "{}{}".format("Ecshop_report",time.strftime("%Y%m%d%H%M"))
+filname = "{}{}".format("mryx_report",time.strftime("%Y%m%d%H%M"))
 testsuite = unittest.defaultTestLoader.discover(config.TESTCASE_PATH, "test_shopping_cart.py")
 BeautifulReport(testsuite).report(
     description='每日优鲜购物车',
