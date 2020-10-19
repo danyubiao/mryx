@@ -5,7 +5,7 @@
 # @File : test_shopping_cart.py
 # @Project : mryx
 import unittest
-from model.driver import webdriver_remote
+from model.driver import driver
 from page.classify_page import ClassifyPage
 from page.home_page import HomePage
 from model.commodity_operating import guess_like_shop,commodity_operating,guess_like_shop_add
@@ -16,7 +16,7 @@ from page.go_coudan_page import GoCoudanPage
 class TestShoppingCart(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver_remote()
+        self.driver = driver()
 
     def test_shopping_add_cart_case(self):
         """商品添加购物车"""
