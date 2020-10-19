@@ -28,6 +28,8 @@ class MysPage(BasePage):
     points_mall_locator = (By.XPATH, "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/server_recycler_view\"]/android.widget.LinearLayout[5]/android.widget.RelativeLayout[1]")
     # 订单配送中的定位
     order_shipping_locator = (By.ID, "cn.missfresh.application:id/btn_mine_shipping")# 订单配送中的定位
+    # 登录用户名定位
+    login_name_locator = (By.XPATH,"//android.widget.TextView[@resource-id=\"cn.missfresh.application:id/tv_nickname\"]")
 
     def click_loging_or_registered(self):
         """点击'登录或注册'按钮"""
@@ -53,3 +55,6 @@ class MysPage(BasePage):
     def click_points_mall(self):
         """点击'积分商城'按钮"""
         self.driver.find_element(*self.points_mall_locator).click()
+    def text_login_name(self):
+        """获取登录名文本"""
+        self.text(self.login_name_locator)
