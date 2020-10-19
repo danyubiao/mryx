@@ -5,15 +5,15 @@
 # @File : driver.py
 # @Project : App_autotest
 from appium import webdriver
-from conf.config import desired_capabilities
+from conf.config import desired_capabilites
 
 from appium.webdriver.common.mobileby import MobileBy as By
-from cof import  config    #引入配置文件
+from conf import  config    #引入配置文件
 
 
 def open_mryx():
 
-    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilites)
     driver.implicitly_wait(30)
     return driver
 
