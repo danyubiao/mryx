@@ -17,8 +17,8 @@ class CartPage(BasePage):
     """在购物车减少商品数量"""
 
     def decrease(self, no=None):
-        add_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【+】的定位器
-        elements = self.driver.find_elements(add_locator)
+        sub_locator = (By.ID, "cn.missfresh.application:id/iv_product_sub")  ###【+】的定位器
+        elements = self.driver.find_elements(sub_locator)
         ele = []
         for i in elements:
             ele.append(i)
@@ -61,3 +61,11 @@ class CartPage(BasePage):
             else:
                 pass
         return prices
+
+    """删除购物车"""
+
+    def drop_cart(self):
+        drop_locator = (By.ID, "cn.missfresh.application:id/tv_delete")
+        ensure_locator = (By.ID, "cn.missfresh.application:id/tv_ensure")
+        self.click(drop_locator)
+        self.click(ensure_locator)

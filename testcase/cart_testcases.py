@@ -34,22 +34,23 @@ class CartTest(BaseCase):
     #     """断言"""
     #     self.assertEqual("购物车", assert_text)
 
-    def test_002(self):
-        """MRYX_ST_shop002:验证购物车添加功能_添加商品"""
-        self.bp = BasePage(self.driver)
-        self.bp.click(HomePage.sort_locator)
-        assert_text1 = self.bp.order_text(SortPage.assert_locator, 1)
-        self.bp.choose(SortPage.buy_locator, 1)
-        self.bp.click(HomePage.cart_locator)
-        sleep(10)
-        assert_text2 = self.bp.order_text(SortPage.assert_locator, 1)
-        """断言"""
-        self.assertEqual(assert_text1, assert_text2)
-        cp = CartPage(self.driver)
-    #     cp.decrease(1)
-    # #
-    # def test_003(self):
-    #     """MRYX_ST_shop003:验证购物车添加功能_正确显示放入购物车商品的数量"""
+    # def test_002(self):
+    #     """MRYX_ST_shop002:验证购物车添加功能_添加商品"""
+    #     self.bp = BasePage(self.driver)
+    #     self.bp.click(HomePage.sort_locator)  ###进入到分类页面
+    #     self.bp.choose(SortPage.buy_locator, 1)  ###选择第一个商品
+    #     assert_text1 = self.bp.order_text(SortPage.assert_locator, 1)  ###获取第一个商品断言信息
+    #     self.bp.click(HomePage.cart_locator)  ###进入购物车页面
+    #     sleep(10)
+    #     assert_text2 = self.bp.order_text(SortPage.assert_locator, 1)  ###获取断言信息
+    #     """断言"""
+    #     self.assertEqual(assert_text1, assert_text2)  ###断言
+    #     cp = CartPage(self.driver)  ###删除购物车
+    #     cp.drop_cart()  ###删除购物车
+
+    def test_003(self):
+        """MRYX_ST_shop003:验证购物车添加功能_正确显示放入购物车商品的数量"""
+        self.bp=BaseCase(self.driver)
 
 
 if __name__ == '__main__':
