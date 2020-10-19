@@ -16,7 +16,7 @@ class EatPage(BasePage):
     find_loc=(By.ANDROID_UIAUTOMATOR,'new UiSelector().text("试试搜索食材、或者菜谱吧")')
 
     # 吃什么页面第一个内容的定位器
-    first_loc=(By.ID,'cn.missfresh.application:id/cook_name')
+    first_loc=(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout/android.widget.TextView')
     # 用户头像定位器
     user_loc=(By.XPATH,'//android.widget.RelativeLayout[@resource-id=\"cn.missfresh.application:'
                        'id/header_layout\"]/android.widget.ImageView[1]')
@@ -27,7 +27,7 @@ class EatPage(BasePage):
                         'FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.'
                         'LinearLayout/android.widget.LinearLayout/android.widget.HorizontalScrollView'
                         '/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.widget.TextView')
-
+    caipu_hengxian_loc=(By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.HorizontalScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[3]/android.view.View')
     # 精选专题定位器
     jingxuan_loc=(By.ID,'cn.missfresh.application:id/tv_rsc_site_title')
 
@@ -55,3 +55,7 @@ class EatPage(BasePage):
         # 获取第一个内容的文本
         text=self.text(self.first_loc)
         return text
+
+    def hengxian(self):
+        # 找到菜谱下面的横线
+        return self.find_element(self.caipu_hengxian_loc)
