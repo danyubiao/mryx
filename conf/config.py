@@ -6,6 +6,7 @@
 # @Project : mryx
 # 连接设备的信息
 import os
+
 desired_capabilites = {
     'platformName': 'Android',
     'deviceName': '127.0.0.1:62001',
@@ -14,6 +15,7 @@ desired_capabilites = {
     'noReset': True,
     'unicodeKeyboard':True
 }
+
 
 MY_FULL_PATH = os.path.abspath(__file__) # 当前绝对文件地址
 MRYX_PATH = MY_FULL_PATH.strip("confgin.py").strip("conf\\") # 工程地址

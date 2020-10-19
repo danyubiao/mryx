@@ -13,4 +13,5 @@ class MysPointsMallPage(BasePage):
     points_good_999_locator = (By.XPATH,"//android.view.ViewGroup[@resource-id=\"cn.missfresh.application:id/gl_content\"]/android.widget.LinearLayout[1]/android.widget.ImageView[2]")
 
     def click_points_good_999(self):
-        """点击"""
+        """点击积分999的商品兑换按钮"""
+        self.click(self.points_good_999_locator)

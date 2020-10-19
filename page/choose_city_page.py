@@ -12,7 +12,7 @@ class ChooseCityPage(BasePage):
 
     """定位器"""
 
-    """城市输入"""
+    """城市输入——成都市"""
     search_address_input_city_loc = (By.ID,"cn.missfresh.application:id/et_search_address_input")
 
     """城市选择"""
