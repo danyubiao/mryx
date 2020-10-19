@@ -1,10 +1,20 @@
-# -*- coding: utf-8 -*-
-# @Time : 2020/10/17 9:09
-# @Author : 墨
-# @Email : xgtlz@gmail.com
+# @Time : 2020/10/16 17:27
+# @Author : 30037
+# @Email : 960364395@qq.com
 # @File : driver.py
-# @Project : mryx
+# @Project : missfresh
+
 from appium import webdriver
+from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from appium.webdriver.common.touch_action import TouchAction
+from conf.config import desired_capabilities
+
+def open_mryx():
+
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+    driver.implicitly_wait(30)
+    return driver
 
 def driver():
     descried_capabilities = {
@@ -21,3 +31,5 @@ def driver():
     driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", descried_capabilities)
     driver.implicitly_wait(30)
     return driver
+
+
