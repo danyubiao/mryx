@@ -58,8 +58,8 @@ class BasePage():
 
 
 # 滚动
-def scroll(self, start_element, end_element):
-    self.driver.scroll(start_element, end_element)
+    def scroll(self, start_element, end_element):
+        self.driver.scroll(start_element, end_element)
 
 
 
@@ -67,9 +67,6 @@ def scroll(self, start_element, end_element):
         """清除输入框"""
         self.find_element(*locator).clear()
 
-    # 滚动
-    def scroll(self, start_element, end_element):
-        self.driver.scroll(start_element, end_element)
 
     """封装添加商品的方法"""
 
@@ -109,6 +106,7 @@ def choose(self, no=None):
 
 
 
+
     def window_size(self):
         """获取窗口大小，返回宽和y高的值"""
         window_size_dict = self.driver.get_window_size()  # 获取窗口大小
@@ -125,57 +123,43 @@ def choose(self, no=None):
         end_y = 0.2 * y
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-def to_down(self, duration=5000):
-    """向下滑动,传参持续时间"""
-    x, y = self.window_size()
-    end_x = start_x = 0.5 * x
-    start_y = 0.2 * y
-    end_y = 0.8 * y
-    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+    def to_down(self, duration=5000):
+        """向下滑动,传参持续时间"""
+        x, y = self.window_size()
+        end_x = start_x = 0.5 * x
+        start_y = 0.2 * y
+        end_y = 0.8 * y
+        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-
-"""向右滑动,传参持续时间"""
-
-
-def to_right(self, duration=5000):
+    
     """向右滑动,传参持续时间"""
-    x, y = self.window_size()
-    start_x = 0.2 * x
-    end_x = 0.9 * x
-    end_y = start_y = 0.5 * y
-    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+
+
+    def to_right(self, duration=5000):
+        """向右滑动,传参持续时间"""
+        x, y = self.window_size()
+        start_x = 0.2 * x
+        end_x = 0.9 * x
+        end_y = start_y = 0.5 * y
+        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
 
 
-def to_left(self, duration=5000):
-    """向左滑动,传参持续时间"""
-    x, y = self.window_size()
-    start_x = 0.9 * x
-    end_x = 0.2 * x
-    end_y = start_y = 0.5 * y
-    self.driver.swipe(start_x, start_y, end_x, end_y, duration)
+    def to_left(self, duration=5000):
+        """向左滑动,传参持续时间"""
+        x, y = self.window_size()
+        start_x = 0.9 * x
+        end_x = 0.2 * x
+        end_y = start_y = 0.5 * y
+        self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-
-def get_text(self, locator):
-    return self.find_element(locator).text
-
-
-"""按照商品的顺序获取信息"""
-
-
-def order_text(self, locator, no=None):
-    elements = self.find_elements(locator)
-    ele = []
-    for i in elements:
-        ele.append(i)
-    return ele[no - 1].text
-
-   
 
     def get_text(self, locator):
         return self.find_element(locator).text
 
+
     """按照商品的顺序获取信息"""
+
 
     def order_text(self, locator, no=None):
         elements = self.find_elements(locator)
@@ -183,5 +167,4 @@ def order_text(self, locator, no=None):
         for i in elements:
             ele.append(i)
         return ele[no - 1].text
-
 

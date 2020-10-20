@@ -4,7 +4,6 @@
 # @Email : xgtlz@gmail.com
 # @File : test_good_ticket.py
 # @Project : mryx
-from testcase.base_case import BaseCase
 import unittest
 from page.home_page import HomePage
 from page.mys_page import MysPage
