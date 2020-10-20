@@ -46,7 +46,7 @@ test9 = (TestGoodTicket("test_MRYX_ST_usr_009"))
 test10 = (TestHelpGetFree("test_MRYX_ST_usr_010"))
 test12 = (TestOrderStatus("test_MRYX_ST_usr_012"))
 
-tests = (test1,tast2,test3,test4,test5,test6,test8,test9,test10,test11,test12)
+tests = (test1,tast2,test4,test5,test11)
 suite.addTests(tests)
 runner = BeautifulReport(suite)
 strTime = time.strftime("%Y%m%d%H%M")
