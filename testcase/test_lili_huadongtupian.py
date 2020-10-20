@@ -35,7 +35,7 @@ class TestHuaDongTuPian(TestBase):
         self.xq=EatXiangQingPage(self.driver)  #实例化详情页面
         sleep(2)
         self.af=self.xq.tupian2diandian_size()   #获取滑动前图片2点点的大小
-        self.driver.swipe(950,550,150,550) #图片往左滑动
+        self.driver.swipe(900,550,150,550) #图片往左滑动
         sleep(2)
 
         # 断言
