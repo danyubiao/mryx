@@ -30,6 +30,8 @@ class BasePage():
             return elements.find_elements(*locator)
         return self.driver.find_elements(*locator)
 
+
+
     # 输入内容
     def send_keys(self, locator, text, element=None):
         """
@@ -44,75 +46,41 @@ class BasePage():
     def click(self, locator, element=None):
         self.find_element(locator, element).click()
 
-    """获取内容"""
 
-
-    def text(self,locator,element=None):
-        text = self.find_element(locator,element).text
-        return text
-
-
-
-
-
-
-
-# 滚动
     def scroll(self, start_element, end_element):
+        """滚动"""
         self.driver.scroll(start_element, end_element)
 
-
+    def text(self,locator,element=None):
+        """获取内容"""
+        text = self.find_element(locator,element).text
+        return text
 
     def clear(self, locator):
         """清除输入框"""
         self.find_element(*locator).clear()
 
-
-    """封装添加商品的方法"""
-
-#     def choose(self, locator, no=None):
-#         expr = '//android.view.View[@resource-id=\"cn.missfresh.application:id/recycler_view\"]/android.widget.RelativeLayout[{}]'
-#         ele = []
-#         for i in range(1, 6):
-#             expr_locator = (By.XPATH, expr.format(i))
-#             ele.append(self.find_element(expr_locator))
-#         if no and isinstance(no, list):
-#             for i in no:
-#                 ele[i - 1].find_element(*locator).click()
-#         else:
-#             print("您输入的数据不合法，请输入一个列表")
-# >>>>>>> master
-
-# """封装添加商品的方法"""
-
-
-def choose(self, no=None):
-    buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
-    elements = self.driver.find_elements(buy_locator)
-    ele = []
-    for i in elements:
-        ele.append(i)
-    if no and isinstance(no, list):
-        for i in no:
-            ele[i - 1].click()
-    elif no and isinstance(no, int):
-        ele[no - 1].click()
-    else:
-        print("你输入的数字不合法")
-
-
-"""获取窗口大小，返回宽和y高的值"""
-
-
-
-
+    def choose(self, no=None):
+        """封装添加商品的方法"""
+        buy_locator = (By.ID, "cn.missfresh.application:id/btn_main_item_buy_now")  ###【+】的定位器
+        elements = self.driver.find_elements(buy_locator)
+        ele = []
+        for i in elements:
+            ele.append(i)
+        if no and isinstance(no, list):
+            for i in no:
+                ele[i - 1].click()
+        elif no and isinstance(no, int):
+            ele[no - 1].click()
+        else:
+            print("你输入的数字不合法")
 
     def window_size(self):
         """获取窗口大小，返回宽和y高的值"""
         window_size_dict = self.driver.get_window_size()  # 获取窗口大小
         x = window_size_dict.get("width")
         y = window_size_dict.get("height")
-        return x, y
+        return x,y
 
 
     def to_up(self, duration=5000):
@@ -131,7 +99,7 @@ def choose(self, no=None):
         end_y = 0.8 * y
         self.driver.swipe(start_x, start_y, end_x, end_y, duration)
 
-    
+
     """向右滑动,传参持续时间"""
 
 
