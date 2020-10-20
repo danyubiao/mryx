@@ -101,7 +101,7 @@ class TestEat(TestBase):
         sleep(3)
         self.assertTrue(isinstance(self.xq.gouwuche_find(),WebElement))  #断言能够找到购物车图标元素
 
-    @unittest.skip("sdpouifgch")
+    # @unittest.skip("sdpouifgch")
     def test_user(self):
         """查看用户主页
         MRYX_ST_eat_005"""

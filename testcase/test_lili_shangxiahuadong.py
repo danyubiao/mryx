@@ -7,7 +7,6 @@
 
 """封装测试用例——在吃什么的页面上下滑动加载"""
 import unittest
-from time import sleep
 
 from selenium.common.exceptions import NoSuchElementException
 
